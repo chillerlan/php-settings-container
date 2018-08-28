@@ -1,7 +1,7 @@
 # chillerlan/php-settings-container
 
 A container class for immutable settings objects. Not a DI container. PHP 7.2+
-- `SettingsContainerInterface` provides immutable properties with magic getter & setter and some fancy
+- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/master/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy
 
 [![version][packagist-badge]][packagist]
 [![license][license-badge]][license]
@@ -90,7 +90,7 @@ var_dump($container->nope); // -> null
 trait SomeOptions{
 	protected $foo;
 	
-	// this method will be called in SettingsContainerAbstract::__construct() after the properties have been set
+	// this method will be called in SettingsContainerAbstract::construct() after the properties have been set
 	protected function SomeOptions(){
 		// just some constructor stuff...
 		$this->foo = strtoupper($this->foo);
@@ -118,6 +118,23 @@ $container = new class ($commonOptions) extends SettingsContainerAbstract{
 var_dump($container->foo); // -> WHATEVER (constructor ran strtoupper on the value)
 var_dump($container->bar); // -> nothing
 ```
+
+### API
+
+#### [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/master/src/SettingsContainerInterface.php)
+
+method | return  | info
+-------- | ----  | -----------
+`__get(string $property)` | mixed | 
+`__set(string $property, $value)` | void | 
+`__isset(string $property)` | bool | 
+`__unset(string $property)` | void | 
+`__toString()` | string | a JSON string
+`toArray()` | array | 
+`fromIterable(iterable $properties)` | `SettingsContainerInterface` | 
+`toJSON(int $jsonOptions = null)` | string | accepts [JSON options constants](http://php.net/manual/json.constants.php)
+`fromJSON(string $json)` | `SettingsContainerInterface` | 
+
 
 ## Disclaimer
 This might be either an utterly genius or completely stupid idea - you decide. However, i like it and it works.
