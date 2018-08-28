@@ -121,10 +121,11 @@ var_dump($container->bar); // -> nothing
 
 ### API
 
-#### [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/master/src/SettingsContainerInterface.php)
+#### [`SettingsContainerAbstract`](https://github.com/chillerlan/php-settings-container/blob/master/src/SettingsContainerAbstract.php)
 
 method | return  | info
 -------- | ----  | -----------
+`__construct(iterable $properties = null)` | - | calls `construct()` internally after the properties have been set to call  a method with trait name as replacement constructor for each used trait
 `__get(string $property)` | mixed | 
 `__set(string $property, $value)` | void | 
 `__isset(string $property)` | bool | 
