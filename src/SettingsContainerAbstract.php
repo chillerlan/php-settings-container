@@ -43,7 +43,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 			$method = $trait->getShortName();
 
 			if(method_exists($this, $method)){
-				call_user_func([$this, $trait->getShortName()]);
+				call_user_func([$this, $method]);
 			}
 		}
 
