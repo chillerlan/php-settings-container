@@ -20,7 +20,7 @@
 		"source": "https://github.com/chillerlan/php-settings-container"
 	},
 	"require": {
-		"php": "^7.2 || ^8.0",
+		"php": "^7.2",
 		"ext-json": "*"
 	},
 	"require-dev": {
