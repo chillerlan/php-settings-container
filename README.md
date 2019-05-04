@@ -137,7 +137,7 @@ method | return  | info
 -------- | ----  | -----------
 `__construct(iterable $properties = null)` | - | calls `construct()` internally after the properties have been set to call  a method with trait name as replacement constructor for each used trait
 `__get(string $property)` | mixed | 
-`__set(string $property, $value)` | void | 
+`__set(string $property, $value)` | void | calls `$this->{'set_'.$property}($value)` if such a method exists
 `__isset(string $property)` | bool | 
 `__unset(string $property)` | void | 
 `__toString()` | string | a JSON string
