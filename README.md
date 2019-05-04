@@ -89,11 +89,17 @@ var_dump($container->nope); // -> null
 ```php
 trait SomeOptions{
 	protected $foo;
+	protected $what;
 	
 	// this method will be called in SettingsContainerAbstract::construct() after the properties have been set
 	protected function SomeOptions(){
 		// just some constructor stuff...
 		$this->foo = strtoupper($this->foo);
+	}
+	
+	// this method will be called from __set() when property $what is set
+	protected function set_what(string $value){
+		$this->what = md5($value);
 	}
 }
 
