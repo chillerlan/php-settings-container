@@ -17,8 +17,9 @@ use chillerlan\Settings\SettingsContainerAbstract;
 /**
  * @property $test1
  * @property $test2
- * @property $testConstruct
+ * @property $test3
  * @property $test4
+ * @property $test5
  */
 class TestContainer extends SettingsContainerAbstract{
 	use TestOptionsTrait;

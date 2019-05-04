@@ -70,6 +70,12 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 			return;
 		}
 
+		if(method_exists($this, 'set_'.$property)){
+			$this->{'set_'.$property}($value);
+
+			return;
+		}
+
 		$this->{$property} = $value;
 	}
 

@@ -22,8 +22,13 @@ trait TestOptionsTrait{
 
 	protected $test4;
 
+	protected $test5;
+
 	protected function TestOptionsTrait(){
 		$this->testConstruct = 'success';
 	}
 
+	protected function set_test5($value){
+		$this->test5 = $value.'_test5';
+	}
 }

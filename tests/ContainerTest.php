@@ -62,18 +62,22 @@ class ContainerTraitTest extends TestCase{
 		// unset
 		unset($container->test1);
 		$this->assertFalse(isset($container->test1));
+
+		// internal set
+		$container->test5 = 'bar';
+		$this->assertSame('bar_test5', $container->test5);
 	}
 
 	public function testToArray(){
 		$container = new TestContainer(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success']);
 
-		$this->assertSame(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success', 'test4' => null], $container->toArray());
+		$this->assertSame(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success', 'test4' => null, 'test5' => null], $container->toArray());
 	}
 
 	public function testToJSON(){
 		$container = (new TestContainer)->fromJSON('{"test1":"no","test2":true,"testConstruct":"success"}');
 
-		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null}';
+		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":null}';
 
 		$this->assertSame($expected, $container->toJSON());
 		$this->assertSame($expected, (string)$container);
