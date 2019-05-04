@@ -52,7 +52,7 @@ Profit!
 ## Usage
 
 The `SettingsContainerInterface` (wrapped in`SettingsContainerAbstract` ) provides plug-in functionality for immutable object variables and adds some fancy, like loading/saving JSON, arrays etc. 
-It takes iterable as the only constructor argument and calls a method (`MyTrait::MyTrait()`) for each used trait on invocation.
+It takes iterable as the only constructor argument and calls a method with the trait's name on invocation (`MyTrait::MyTrait()`) for each used trait.
 
 ### Simple usage
 ```php
@@ -91,7 +91,8 @@ trait SomeOptions{
 	protected $foo;
 	protected $what;
 	
-	// this method will be called in SettingsContainerAbstract::construct() after the properties have been set
+	// this method will be called in SettingsContainerAbstract::construct()
+	// after the properties have been set
 	protected function SomeOptions(){
 		// just some constructor stuff...
 		$this->foo = strtoupper($this->foo);
