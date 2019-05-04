@@ -123,6 +123,9 @@ $container = new class ($commonOptions) extends SettingsContainerAbstract{
 
 var_dump($container->foo); // -> WHATEVER (constructor ran strtoupper on the value)
 var_dump($container->bar); // -> nothing
+
+$container->what = 'some value';
+var_dump($container->what); // -> md5 hash of "some value"
 ```
 
 ### API
