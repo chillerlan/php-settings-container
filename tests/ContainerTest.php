@@ -13,6 +13,7 @@
 namespace chillerlan\SettingsTest;
 
 use PHPUnit\Framework\TestCase;
+use Exception, TypeError;
 
 class ContainerTraitTest extends TestCase{
 
@@ -81,6 +82,16 @@ class ContainerTraitTest extends TestCase{
 
 		$this->assertSame($expected, $container->toJSON());
 		$this->assertSame($expected, (string)$container);
+	}
+
+	public function testFromJsonException(){
+		$this->expectException(Exception::class);
+		(new TestContainer)->fromJSON('-');
+
+	}
+	public function testFromJsonTypeError(){
+		$this->expectException(TypeError::class);
+		(new TestContainer)->fromJSON('2');
 	}
 
 }
