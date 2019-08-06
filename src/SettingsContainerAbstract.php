@@ -150,7 +150,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 		$data = json_decode($json, true); // as of PHP 7.3: JSON_THROW_ON_ERROR
 
-		if($data === false){
+		if($data === false || $data === null){
 			throw new Exception('error while decoding JSON');
 		}
 
