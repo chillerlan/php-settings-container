@@ -145,7 +145,14 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	 * @inheritdoc
 	 */
 	public function fromJSON(string $json):SettingsContainerInterface{
-		return $this->fromIterable(json_decode($json, true));
+
+		$data = json_decode($json, true); // as of PHP 7.3: JSON_THROW_ON_ERROR
+
+		if($data === false){
+			throw new Exception('error while decoding JSON');
+		}
+
+		return $this->fromIterable($data);
 	}
 
 }

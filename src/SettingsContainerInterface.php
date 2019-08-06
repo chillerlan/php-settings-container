@@ -93,6 +93,9 @@ interface SettingsContainerInterface{
 	 * @param string $json
 	 *
 	 * @return \chillerlan\Settings\SettingsContainerInterface
+	 *
+	 * @throws \Exception
+	 * @throws \JsonException
 	 */
 	public function fromJSON(string $json):SettingsContainerInterface;
 
