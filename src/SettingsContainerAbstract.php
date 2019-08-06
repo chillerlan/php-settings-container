@@ -12,7 +12,9 @@
 
 namespace chillerlan\Settings;
 
-use ReflectionClass, ReflectionProperty;
+use Exception, ReflectionClass, ReflectionProperty;
+
+use function call_user_func, get_object_vars, json_decode, json_encode, method_exists, property_exists;
 
 abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
