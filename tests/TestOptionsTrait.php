@@ -24,11 +24,17 @@ trait TestOptionsTrait{
 
 	protected $test5;
 
+	protected $test6;
+
 	protected function TestOptionsTrait(){
 		$this->testConstruct = 'success';
 	}
 
 	protected function set_test5($value){
 		$this->test5 = $value.'_test5';
+	}
+
+	protected function get_test6(){
+		return sha1($this->test6);
 	}
 }

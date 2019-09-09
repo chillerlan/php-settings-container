@@ -48,6 +48,10 @@ class ContainerTraitTest extends TestCase{
 		$this->assertFalse(isset($container->test3));
 		$this->assertFalse(isset($container->test4));
 		$this->assertFalse(isset($container->foo));
+
+		// custom getter
+		$container->test6 = 'foo';
+		$this->assertSame(sha1('foo'), $container->test6);
 	}
 
 	public function testSet(){
@@ -72,13 +76,13 @@ class ContainerTraitTest extends TestCase{
 	public function testToArray(){
 		$container = new TestContainer(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success']);
 
-		$this->assertSame(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success', 'test4' => null, 'test5' => null], $container->toArray());
+		$this->assertSame(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success', 'test4' => null, 'test5' => null, 'test6' => null], $container->toArray());
 	}
 
 	public function testToJSON(){
 		$container = (new TestContainer)->fromJSON('{"test1":"no","test2":true,"testConstruct":"success"}');
 
-		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":null}';
+		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":null,"test6":null}';
 
 		$this->assertSame($expected, $container->toJSON());
 		$this->assertSame($expected, (string)$container);
