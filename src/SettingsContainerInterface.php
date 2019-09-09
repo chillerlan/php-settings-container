@@ -12,10 +12,12 @@
 
 namespace chillerlan\Settings;
 
+use JsonSerializable;
+
 /**
  * a generic container with magic getter and setter
  */
-interface SettingsContainerInterface{
+interface SettingsContainerInterface extends JsonSerializable{
 
 	/**
 	 * Retrieve the value of $property
