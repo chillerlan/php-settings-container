@@ -56,7 +56,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	 */
 	public function __get(string $property){
 
-		if($this->__isset($property)){
+		if(property_exists($this, $property) && !$this->isPrivate($property)){
 
 			if(method_exists($this, 'get_'.$property)){
 				return call_user_func([$this, 'get_'.$property]);
