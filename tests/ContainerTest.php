@@ -68,7 +68,7 @@ class ContainerTraitTest extends TestCase{
 		unset($container->test1);
 		$this->assertFalse(isset($container->test1));
 
-		// internal set
+		// custom setter
 		$container->test5 = 'bar';
 		$this->assertSame('bar_test5', $container->test5);
 	}

@@ -14,7 +14,7 @@ namespace chillerlan\Settings;
 
 use Exception, ReflectionClass, ReflectionProperty;
 
-use function call_user_func, get_object_vars, json_decode, json_encode, method_exists, property_exists;
+use function call_user_func, call_user_func_array, get_object_vars, json_decode, json_encode, method_exists, property_exists;
 
 abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
@@ -78,7 +78,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		}
 
 		if(method_exists($this, 'set_'.$property)){
-			$this->{'set_'.$property}($value);
+			call_user_func_array([$this, 'set_'.$property], [$value]);
 
 			return;
 		}
