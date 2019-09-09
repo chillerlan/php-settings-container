@@ -135,8 +135,9 @@ var_dump($container->what); // -> md5 hash of "some value"
 
 method | return  | info
 -------- | ----  | -----------
-`__construct(iterable $properties = null)` | - | calls `construct()` internally after the properties have been set to call  a method with trait name as replacement constructor for each used trait
-`__get(string $property)` | mixed | 
+`__construct(iterable $properties = null)` | - | calls `construct()` internally after the properties have been set
+(protected) `construct()` | void | calls a method with trait name as replacement constructor for each used trait
+`__get(string $property)` | mixed | calls `$this->{'get_'.$property}()` if such a method exists
 `__set(string $property, $value)` | void | calls `$this->{'set_'.$property}($value)` if such a method exists
 `__isset(string $property)` | bool | 
 `__unset(string $property)` | void | 
@@ -145,7 +146,7 @@ method | return  | info
 `fromIterable(iterable $properties)` | `SettingsContainerInterface` | 
 `toJSON(int $jsonOptions = null)` | string | accepts [JSON options constants](http://php.net/manual/json.constants.php)
 `fromJSON(string $json)` | `SettingsContainerInterface` | 
-
+`jsonSerialize()` | mixed | implements the [`JsonSerializable`](https://www.php.net/manual/en/jsonserializable.jsonserialize.php) interface
 
 ## Disclaimer
 This might be either an utterly genius or completely stupid idea - you decide. However, i like it and it works.
