@@ -35,6 +35,8 @@ trait TestOptionsTrait{
 	}
 
 	protected function get_test6(){
-		return sha1($this->test6);
+		return $this->test6 === null
+			? 'null'
+			: sha1($this->test6);
 	}
 }
