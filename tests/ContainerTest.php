@@ -52,6 +52,10 @@ class ContainerTraitTest extends TestCase{
 		// custom getter
 		$container->test6 = 'foo';
 		$this->assertSame(sha1('foo'), $container->test6);
+		// nullable/isset test
+		$container->test6 = null;
+		$this->assertFalse(isset($container->test6));
+		$this->assertSame('null', $container->test6);
 	}
 
 	public function testSet(){
