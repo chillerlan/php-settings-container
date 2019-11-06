@@ -78,6 +78,8 @@ $container->fromJSON('{"foo": "what", "bar": "foo"}');
 $container->toArray(); // -> ['foo' => 'what', 'bar' => 'foo']
 // or JSON
 $container->toJSON(); // -> {"foo": "what", "bar": "foo"}
+// JSON via JsonSerializable
+$json = json_encode($container); // -> {"foo": "what", "bar": "foo"}
 
 //non-existing properties will be ignored:
 $container->nope = 'what';
