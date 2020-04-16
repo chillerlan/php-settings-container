@@ -15,7 +15,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 // from library #1
 trait SomeOptions{
-	protected $foo;
+	protected string $foo = '';
 
 	// this method will be called in SettingsContainerAbstract::__construct() after the properties have been set
 	protected function SomeOptions(){
@@ -26,7 +26,7 @@ trait SomeOptions{
 
 // from library #2
 trait MoreOptions{
-	protected $bar = 'whatever'; // provide default values
+	protected string $bar = 'whatever'; // provide default values
 }
 
 $commonOptions = [
@@ -37,10 +37,16 @@ $commonOptions = [
 ];
 
 // now plug the several library options together to a single object
-/** @var \chillerlan\Settings\SettingsContainerInterface $container */
-$container = new class ($commonOptions) extends SettingsContainerAbstract{
+
+/**
+ * @property string foo
+ * @property string bar
+ */
+class MySettings extends SettingsContainerAbstract{
 	use SomeOptions, MoreOptions; // ...
 };
+
+$container = new MySettings($commonOptions);
 
 var_dump($container->foo); // -> WHATEVER (constructor ran strtoupper on the value)
 var_dump($container->bar); // -> nothing
