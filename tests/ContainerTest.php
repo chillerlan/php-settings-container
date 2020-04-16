@@ -15,7 +15,7 @@ namespace chillerlan\SettingsTest;
 use PHPUnit\Framework\TestCase;
 use JsonException, TypeError;
 
-class ContainerTraitTest extends TestCase{
+class ContainerTest extends TestCase{
 
 	public function testConstruct(){
 		$container = new TestContainer([
