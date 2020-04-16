@@ -14,17 +14,17 @@ namespace chillerlan\SettingsTest;
 
 trait TestOptionsTrait{
 
-	protected $test1 = 'foo';
+	protected string $test1 = 'foo';
 
-	protected $test2;
+	protected ?bool $test2 = null;
 
-	protected $testConstruct;
+	protected string $testConstruct;
 
-	protected $test4;
+	protected ?string $test4 = null;
 
-	protected $test5;
+	protected ?string $test5 = null;
 
-	protected $test6;
+	protected ?string $test6 = null;
 
 	protected function TestOptionsTrait(){
 		$this->testConstruct = 'success';

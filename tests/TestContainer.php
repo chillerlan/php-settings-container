@@ -25,5 +25,5 @@ use chillerlan\Settings\SettingsContainerAbstract;
 class TestContainer extends SettingsContainerAbstract{
 	use TestOptionsTrait;
 
-	private $test3 = 'what';
+	private string $test3 = 'what';
 }

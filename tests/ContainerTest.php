@@ -20,13 +20,13 @@ class ContainerTest extends TestCase{
 	public function testConstruct(){
 		$container = new TestContainer([
 			'test1' => 'test1',
-			'test2' => 'test2',
+			'test2' => true,
 			'test3' => 'test3',
 			'test4' => 'test4',
 		]);
 
 		$this->assertSame('test1', $container->test1);
-		$this->assertSame('test2', $container->test2);
+		$this->assertSame(true, $container->test2);
 		$this->assertNull($container->test3);
 		$this->assertSame('test4', $container->test4);
 
@@ -61,11 +61,11 @@ class ContainerTest extends TestCase{
 	public function testSet(){
 		$container = new TestContainer;
 		$container->test1 = 'bar';
-		$container->test2 = 'what';
+		$container->test2 = false;
 		$container->test3 = 'nope';
 
 		$this->assertSame('bar', $container->test1);
-		$this->assertSame('what', $container->test2);
+		$this->assertSame(false, $container->test2);
 		$this->assertNull($container->test3);
 
 		// unset
