@@ -12,7 +12,7 @@
 
 namespace chillerlan\Settings;
 
-use Exception, ReflectionClass, ReflectionProperty;
+use ReflectionClass, ReflectionProperty;
 
 use function call_user_func, call_user_func_array, get_object_vars, json_decode, json_encode, method_exists, property_exists;
 
