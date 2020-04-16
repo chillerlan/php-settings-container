@@ -2,16 +2,18 @@ language: php
 
 matrix:
   include:
-  - php: 7.2
-  - php: 7.3
-  - php: 7.4
-  - php: nightly
-  allow_failures:
-  - php: nightly
+    - php: 7.4
 
+before_install:
+  - pecl channel-update pecl.php.net
+  - pecl install ast
 
-before_script: travis_retry composer install --no-interaction --prefer-source
+install:
+  - composer install --no-interaction --prefer-source
+  - composer validate
 
-script: vendor/bin/phpunit --configuration phpunit.xml --coverage-clover clover.xml
+script:
+  - vendor/bin/phpunit --configuration phpunit.xml --coverage-clover clover.xml
+  - vendor/bin/phan
 
 after_script: bash <(curl -s https://codecov.io/bash)
