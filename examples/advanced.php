@@ -39,8 +39,8 @@ $commonOptions = [
 // now plug the several library options together to a single object
 
 /**
- * @property string foo
- * @property string bar
+ * @property string $foo
+ * @property string $bar
  */
 class MySettings extends SettingsContainerAbstract{
 	use SomeOptions, MoreOptions; // ...
