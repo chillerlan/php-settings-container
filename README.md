@@ -1,7 +1,7 @@
 # chillerlan/php-settings-container
 
 A container class for immutable settings objects. Not a DI container. PHP 7.2+
-- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/master/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy
+- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy
 
 [![version][packagist-badge]][packagist]
 [![license][license-badge]][license]
@@ -14,7 +14,7 @@ A container class for immutable settings objects. Not a DI container. PHP 7.2+
 [packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-settings-container.svg?style=flat-square
 [packagist]: https://packagist.org/packages/chillerlan/php-settings-container
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-settings-container.svg?style=flat-square
-[license]: https://github.com/chillerlan/php-settings-container/blob/master/LICENSE
+[license]: https://github.com/chillerlan/php-settings-container/blob/main/LICENSE
 [travis-badge]: https://img.shields.io/travis/chillerlan/php-settings-container.svg?style=flat-square
 [travis]: https://travis-ci.org/chillerlan/php-settings-container
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-settings-container.svg?style=flat-square
@@ -31,21 +31,15 @@ A container class for immutable settings objects. Not a DI container. PHP 7.2+
 ### Installation
 **requires [composer](https://getcomposer.org)**
 
-*composer.json* (note: replace `dev-master` with a version boundary)
+*composer.json* (note: replace `dev-main` with a version boundary)
 ```json
 {
 	"require": {
 		"php": "^7.2",
-		"chillerlan/php-settings-container": "^1.0"
+		"chillerlan/php-settings-container": "dev-main"
 	}
 }
 ```
-
-### Manual installation
-Download the desired version of the package from [master](https://github.com/chillerlan/php-settings-container/archive/master.zip) or 
-[release](https://github.com/chillerlan/php-settings-container/releases) and extract the contents to your project folder.  After that:
-- run `composer install` to install the required dependencies and generate `/vendor/autoload.php`.
-- if you use a custom autoloader, point the namespace `chillerlan\Settings` to the folder `src` of the package 
 
 Profit!
 
@@ -140,7 +134,7 @@ var_dump($container->what); // -> md5 hash of "some value"
 
 ### API
 
-#### [`SettingsContainerAbstract`](https://github.com/chillerlan/php-settings-container/blob/master/src/SettingsContainerAbstract.php)
+#### [`SettingsContainerAbstract`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerAbstract.php)
 
 method | return  | info
 -------- | ----  | -----------
