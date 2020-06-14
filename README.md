@@ -11,6 +11,8 @@ A container class for immutable settings objects. Not a DI container. PHP 7.2+
 [![Packagist downloads][downloads-badge]][downloads]
 [![PayPal donate][donate-badge]][donate]
 
+[![Continuous Integration][gh-action-badge]][gh-action]
+
 [packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-settings-container.svg?style=flat-square
 [packagist]: https://packagist.org/packages/chillerlan/php-settings-container
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-settings-container.svg?style=flat-square
@@ -25,6 +27,8 @@ A container class for immutable settings objects. Not a DI container. PHP 7.2+
 [downloads]: https://packagist.org/packages/chillerlan/php-settings-container/stats
 [donate-badge]: https://img.shields.io/badge/donate-paypal-ff33aa.svg?style=flat-square
 [donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WLYUNAT9ZTJZ4
+[gh-action-badge]: https://github.com/chillerlan/php-settings-container/workflows/Continuous%20Integration/badge.svg
+[gh-action]: https://github.com/chillerlan/php-settings-container/actions?query=workflow%3A%22Continuous+Integration%22
 
 ## Documentation
 
