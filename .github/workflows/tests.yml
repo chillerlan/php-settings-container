@@ -30,7 +30,9 @@ jobs:
         run: composer update --no-interaction --no-ansi --no-progress --no-suggest
 
       - name: "phan env"
-        run: echo "PHAN_ALLOW_XDEBUG=0\nPHAN_DISABLE_XDEBUG_WARN=1" >> $GITHUB_ENV
+        run: |
+          echo "PHAN_ALLOW_XDEBUG=0" >> $GITHUB_ENV
+          echo "PHAN_DISABLE_XDEBUG_WARN=1" >> $GITHUB_ENV
 
       - name: "Run phan"
         run: php vendor/bin/phan
