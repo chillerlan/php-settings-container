@@ -24,7 +24,7 @@
 		"ext-json": "*"
 	},
 	"require-dev": {
-		"phan/phan": "^3.2.2",
+		"phan/phan": "^4.0",
 		"phpunit/phpunit": "^9.5"
 	},
 	"autoload": {
