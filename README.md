@@ -1,32 +1,31 @@
 # chillerlan/php-settings-container
 
-A container class for immutable settings objects. Not a DI container. PHP 7.2+
+A container class for immutable settings objects. Not a DI container. PHP 7.4+
 - [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy
 
+[![PHP Version Support][php-badge]][php]
 [![version][packagist-badge]][packagist]
 [![license][license-badge]][license]
 [![Travis][travis-badge]][travis]
 [![Coverage][coverage-badge]][coverage]
 [![Scrunitizer][scrutinizer-badge]][scrutinizer]
-[![Packagist downloads][downloads-badge]][downloads]
-[![PayPal donate][donate-badge]][donate]
-
+[![Packagist downloads][downloads-badge]][downloads]<br/>
 [![Continuous Integration][gh-action-badge]][gh-action]
 
-[packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-settings-container.svg?style=flat-square
+[php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-settings-container?logo=php&color=8892BF
+[php]: https://www.php.net/supported-versions.php
+[packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-settings-container.svg
 [packagist]: https://packagist.org/packages/chillerlan/php-settings-container
-[license-badge]: https://img.shields.io/github/license/chillerlan/php-settings-container.svg?style=flat-square
+[license-badge]: https://img.shields.io/github/license/chillerlan/php-settings-container.svg
 [license]: https://github.com/chillerlan/php-settings-container/blob/main/LICENSE
-[travis-badge]: https://img.shields.io/travis/chillerlan/php-settings-container.svg?style=flat-square
+[travis-badge]: https://img.shields.io/travis/com/chillerlan/php-settings-container/main?logo=travis
 [travis]: https://travis-ci.org/chillerlan/php-settings-container
-[coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-settings-container.svg?style=flat-square
+[coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-settings-container.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-settings-container
-[scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-settings-container.svg?style=flat-square
+[scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-settings-container.svg?logo=scrutinizer
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-settings-container
-[downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg
 [downloads]: https://packagist.org/packages/chillerlan/php-settings-container/stats
-[donate-badge]: https://img.shields.io/badge/donate-paypal-ff33aa.svg?style=flat-square
-[donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WLYUNAT9ZTJZ4
 [gh-action-badge]: https://github.com/chillerlan/php-settings-container/workflows/Continuous%20Integration/badge.svg
 [gh-action]: https://github.com/chillerlan/php-settings-container/actions?query=workflow%3A%22Continuous+Integration%22
 
