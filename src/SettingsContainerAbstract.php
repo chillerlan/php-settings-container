@@ -53,6 +53,8 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	/**
 	 * @inheritdoc
+	 *
+	 * @return mixed|null
 	 */
 	public function __get(string $property){
 
@@ -60,8 +62,10 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 			return null;
 		}
 
-		if(method_exists($this, 'get_'.$property)){
-			return call_user_func([$this, 'get_'.$property]);
+		$method = 'get_'.$property;
+
+		if(method_exists($this, $method)){
+			return call_user_func([$this, $method]);
 		}
 
 		return $this->{$property};
@@ -76,8 +80,10 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 			return;
 		}
 
-		if(method_exists($this, 'set_'.$property)){
-			call_user_func_array([$this, 'set_'.$property], [$value]);
+		$method = 'set_'.$property;
+
+		if(method_exists($this, $method)){
+			call_user_func_array([$this, $method], [$value]);
 
 			return;
 		}
@@ -159,7 +165,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @inheritdoc
 	 */
-	public function jsonSerialize(){
+	public function jsonSerialize():array{
 		return $this->toArray();
 	}
 
