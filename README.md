@@ -6,7 +6,6 @@ A container class for immutable settings objects. Not a DI container. PHP 7.4+
 [![PHP Version Support][php-badge]][php]
 [![version][packagist-badge]][packagist]
 [![license][license-badge]][license]
-[![Travis][travis-badge]][travis]
 [![Coverage][coverage-badge]][coverage]
 [![Scrunitizer][scrutinizer-badge]][scrutinizer]
 [![Packagist downloads][downloads-badge]][downloads]<br/>
@@ -18,8 +17,6 @@ A container class for immutable settings objects. Not a DI container. PHP 7.4+
 [packagist]: https://packagist.org/packages/chillerlan/php-settings-container
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-settings-container.svg
 [license]: https://github.com/chillerlan/php-settings-container/blob/main/LICENSE
-[travis-badge]: https://img.shields.io/travis/com/chillerlan/php-settings-container/main?logo=travis
-[travis]: https://travis-ci.org/chillerlan/php-settings-container
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-settings-container.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-settings-container
 [scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-settings-container.svg?logo=scrutinizer
