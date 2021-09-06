@@ -77,9 +77,20 @@ class ContainerTest extends TestCase{
 	}
 
 	public function testToArray(){
-		$container = new TestContainer(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success']);
+		$container = new TestContainer([
+			'test1'         => 'no',
+			'test2'         => true,
+			'testConstruct' => 'success',
+		]);
 
-		$this::assertSame(['test1' => 'no', 'test2' => true, 'testConstruct' => 'success', 'test4' => null, 'test5' => null, 'test6' => null], $container->toArray());
+		$this::assertSame([
+			'test1'         => 'no',
+			'test2'         => true,
+			'testConstruct' => 'success',
+			'test4'         => null,
+			'test5'         => null,
+			'test6'         => null
+		], $container->toArray());
 	}
 
 	public function testToJSON(){
