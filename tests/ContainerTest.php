@@ -12,6 +12,7 @@ namespace chillerlan\SettingsTest;
 
 use PHPUnit\Framework\TestCase;
 use JsonException, TypeError;
+use function sha1;
 
 class ContainerTest extends TestCase{
 
