@@ -2,9 +2,7 @@
 /**
  * Trait TestOptionsTrait
  *
- * @filesource   TestOptionsTrait.php
  * @created      28.08.2018
- * @package      chillerlan\SettingsTest
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

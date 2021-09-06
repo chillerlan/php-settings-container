@@ -2,9 +2,7 @@
 /**
  * Class TestContainer
  *
- * @filesource   TestContainer.php
  * @created      28.08.2018
- * @package      chillerlan\SettingsTest
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT
