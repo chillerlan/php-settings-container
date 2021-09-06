@@ -13,7 +13,7 @@ A container class for immutable settings objects. Not a DI container. PHP 7.4+
 
 [php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-settings-container?logo=php&color=8892BF
 [php]: https://www.php.net/supported-versions.php
-[packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-settings-container.svg
+[packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-settings-container.svg?logo=packagist
 [packagist]: https://packagist.org/packages/chillerlan/php-settings-container
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-settings-container.svg
 [license]: https://github.com/chillerlan/php-settings-container/blob/main/LICENSE
@@ -21,7 +21,7 @@ A container class for immutable settings objects. Not a DI container. PHP 7.4+
 [coverage]: https://codecov.io/github/chillerlan/php-settings-container
 [scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-settings-container.svg?logo=scrutinizer
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-settings-container
-[downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-settings-container/stats
 [gh-action-badge]: https://github.com/chillerlan/php-settings-container/workflows/CI/badge.svg
 [gh-action]: https://github.com/chillerlan/php-settings-container/actions?query=workflow%3A%22CI%22
