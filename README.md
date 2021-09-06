@@ -31,7 +31,7 @@ A container class for immutable settings objects. Not a DI container. PHP 7.4+
 ### Installation
 **requires [composer](https://getcomposer.org)**
 
-*composer.json* (note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^2.0` - see [releases](https://github.com/chillerlan/php-settings-container/releases) for valid versions)
+*composer.json* (note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^2.1` - see [releases](https://github.com/chillerlan/php-settings-container/releases) for valid versions)
 ```json
 {
 	"require": {
