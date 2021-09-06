@@ -26,15 +26,15 @@ trait TestOptionsTrait{
 
 	protected ?string $test6 = null;
 
-	protected function TestOptionsTrait(){
+	protected function TestOptionsTrait():void{
 		$this->testConstruct = 'success';
 	}
 
-	protected function set_test5($value){
+	protected function set_test5($value):void{
 		$this->test5 = $value.'_test5';
 	}
 
-	protected function get_test6(){
+	protected function get_test6():string{
 		return $this->test6 === null
 			? 'null'
 			: sha1($this->test6);
