@@ -19,8 +19,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	/**
 	 * SettingsContainerAbstract constructor.
-	 *
-	 * @param iterable|null $properties
 	 */
 	public function __construct(iterable $properties = null){
 
@@ -34,8 +32,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * calls a method with trait name as replacement constructor for each used trait
 	 * (remember pre-php5 classname constructors? yeah, basically this.)
-	 *
-	 * @return void
 	 */
 	protected function construct():void{
 		$traits = (new ReflectionClass($this))->getTraits();
@@ -52,8 +48,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	/**
 	 * @inheritdoc
-	 *
-	 * @return mixed|null
 	 */
 	public function __get(string $property){
 
