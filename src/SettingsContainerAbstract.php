@@ -93,10 +93,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	/**
 	 * @internal Checks if a property is private
-	 *
-	 * @param string $property
-	 *
-	 * @return bool
 	 */
 	protected function isPrivate(string $property):bool{
 		return (new ReflectionProperty($this, $property))->isPrivate();
