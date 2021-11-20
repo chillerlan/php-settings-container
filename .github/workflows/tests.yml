@@ -2,8 +2,13 @@
 # https://github.com/sebastianbergmann/phpunit/blob/master/.github/workflows/ci.yml
 
 on:
-  - pull_request
-  - push
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 
 name: "CI"
 
@@ -36,6 +41,33 @@ jobs:
       - name: "Run phan"
         run: php vendor/bin/phan
 
+  build-docs:
+    name: "Build and publish Docs"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout sources"
+        uses: actions/checkout@v2
+
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "7.4"
+          coverage: none
+          tools: phpDocumentor
+          extensions: json
+
+      - name: "Build Docs"
+        run: phpdoc --config=phpdoc.xml
+
+      - name: "Publish Docs to gh-pages"
+        uses: JamesIves/github-pages-deploy-action@4.1.6
+        with:
+          BRANCH: gh-pages
+          FOLDER: docs
+          CLEAN: true
+
   tests:
     name: "Unit Tests"
 
@@ -50,7 +82,7 @@ jobs:
         php-version:
           - "7.4"
           - "8.0"
-#          - "8.1"
+          - "8.1"
 
     steps:
       - name: "Configure git to avoid issues with line endings"
