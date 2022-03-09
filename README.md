@@ -1,7 +1,7 @@
 # chillerlan/php-settings-container
 
 A container class for immutable settings objects. Not a DI container. PHP 7.4+
-- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy
+- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy - decouple configuration logic from your application!
 
 [![PHP Version Support][php-badge]][php]
 [![version][packagist-badge]][packagist]

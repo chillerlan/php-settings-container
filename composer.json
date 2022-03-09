@@ -6,7 +6,7 @@
 	"type": "library",
 	"minimum-stability": "stable",
 	"keywords": [
-		"php7", "helper", "container", "settings"
+		"php7", "helper", "container", "settings", "configuration"
 	],
 	"authors": [
 		{
