@@ -62,11 +62,11 @@ jobs:
         run: phpdoc --config=phpdoc.xml
 
       - name: "Publish Docs to gh-pages"
-        uses: JamesIves/github-pages-deploy-action@4.1.6
+        uses: JamesIves/github-pages-deploy-action@4.2.5
         with:
-          BRANCH: gh-pages
-          FOLDER: docs
-          CLEAN: true
+          branch: gh-pages
+          folder: docs
+          clean: true
 
   tests:
     name: "Unit Tests"
@@ -85,10 +85,6 @@ jobs:
           - "8.1"
 
     steps:
-      - name: "Configure git to avoid issues with line endings"
-        if: matrix.os == 'windows-latest'
-        run: git config --global core.autocrlf false
-
       - name: "Checkout"
         uses: actions/checkout@v2
 
