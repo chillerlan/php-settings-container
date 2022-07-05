@@ -35,7 +35,7 @@ A container class for immutable settings objects. Not a DI container. PHP 7.4+
 ```json
 {
 	"require": {
-		"php": "^7.4",
+		"php": "^7.4 || ^8.0",
 		"chillerlan/php-settings-container": "dev-main"
 	}
 }
