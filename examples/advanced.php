@@ -17,7 +17,7 @@ trait SomeOptions{
 	protected string $foo = '';
 
 	// this method will be called in SettingsContainerAbstract::__construct() after the properties have been set
-	protected function SomeOptions(){
+	protected function SomeOptions():void{
 		// just some constructor stuff...
 		$this->foo = strtoupper($this->foo);
 	}

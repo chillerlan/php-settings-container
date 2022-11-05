@@ -22,15 +22,12 @@ interface SettingsContainerInterface extends JsonSerializable{
 	 *
 	 * @return mixed|null
 	 */
-	public function __get(string $property);
+	public function __get(string $property):mixed;
 
 	/**
 	 * Set $property to $value while avoiding private and non-existing properties
-	 *
-	 * @param string $property
-	 * @param mixed  $value
 	 */
-	public function __set(string $property, $value):void;
+	public function __set(string $property, mixed $value):void;
 
 	/**
 	 * Checks if $property is set (aka. not null), excluding private properties

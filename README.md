@@ -1,6 +1,6 @@
 # chillerlan/php-settings-container
 
-A container class for immutable settings objects. Not a DI container. PHP 7.4+
+A container class for immutable settings objects. Not a DI container. PHP 8.1+
 - [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy - decouple configuration logic from your application!
 
 [![PHP Version Support][php-badge]][php]
@@ -35,7 +35,7 @@ A container class for immutable settings objects. Not a DI container. PHP 7.4+
 ```json
 {
 	"require": {
-		"php": "^7.4 || ^8.0",
+		"php": "^8.1",
 		"chillerlan/php-settings-container": "dev-main"
 	}
 }
@@ -49,13 +49,6 @@ The `SettingsContainerInterface` (wrapped in`SettingsContainerAbstract` ) provid
 It takes an `iterable` as the only constructor argument and calls a method with the trait's name on invocation (`MyTrait::MyTrait()`) for each used trait.
 
 ### Simple usage
-```php
-class MyContainer extends SettingsContainerAbstract{
-	protected $foo;
-	protected $bar;
-}
-```
-Typed properties in PHP 7.4+:
 ```php
 class MyContainer extends SettingsContainerAbstract{
 	protected string $foo;
@@ -91,8 +84,8 @@ var_dump($container->nope); // -> null
 ### Advanced usage
 ```php
 trait SomeOptions{
-	protected $foo;
-	protected $what;
+	protected string $foo;
+	protected string $what;
 	
 	// this method will be called in SettingsContainerAbstract::construct()
 	// after the properties have been set
@@ -108,7 +101,7 @@ trait SomeOptions{
 }
 
 trait MoreOptions{
-	protected $bar = 'whatever'; // provide default values
+	protected string $bar = 'whatever'; // provide default values
 }
 ```
 

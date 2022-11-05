@@ -49,7 +49,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @inheritdoc
 	 */
-	public function __get(string $property){
+	public function __get(string $property):mixed{
 
 		if(!property_exists($this, $property) || $this->isPrivate($property)){
 			return null;
@@ -67,7 +67,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @inheritdoc
 	 */
-	public function __set(string $property, $value):void{
+	public function __set(string $property, mixed $value):void{
 
 		if(!property_exists($this, $property) || $this->isPrivate($property)){
 			return;
@@ -153,9 +153,9 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	/**
 	 * @inheritdoc
+	 * @noinspection PhpMixedReturnTypeCanBeReducedInspection
 	 */
-	#[\ReturnTypeWillChange]
-	public function jsonSerialize():array{
+	public function jsonSerialize():mixed{
 		return $this->toArray();
 	}
 

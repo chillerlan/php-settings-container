@@ -30,16 +30,17 @@ jobs:
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "7.4"
+          php-version: "8.1"
           tools: pecl
           coverage: none
           extensions: ast, json
 
       - name: "Update dependencies with composer"
-        run: composer update --no-interaction --no-ansi --no-progress --no-suggest
+        uses: ramsey/composer-install@v2
 
       - name: "Run phan"
         run: php vendor/bin/phan
+
 
   build-docs:
     name: "Build and publish Docs"
@@ -68,6 +69,7 @@ jobs:
           folder: docs
           clean: true
 
+
   tests:
     name: "Unit Tests"
 
@@ -80,9 +82,9 @@ jobs:
           - ubuntu-latest
           - windows-latest
         php-version:
-          - "7.4"
           - "8.0"
           - "8.1"
+          - "8.2"
 
     steps:
       - name: "Checkout"
@@ -96,7 +98,7 @@ jobs:
           extensions: json
 
       - name: "Install dependencies with composer"
-        run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+        uses: ramsey/composer-install@v2
 
       - name: "Run tests with phpunit"
         run: php vendor/phpunit/phpunit/phpunit --configuration=phpunit.xml

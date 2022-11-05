@@ -20,11 +20,11 @@
 		"source": "https://github.com/chillerlan/php-settings-container"
 	},
 	"require": {
-		"php": "^7.4 || ^8.0",
+		"php": "^8.1",
 		"ext-json": "*"
 	},
 	"require-dev": {
-		"phan/phan": "^5.3",
+		"phan/phan": "^5.4",
 		"phpunit/phpunit": "^9.5"
 	},
 	"autoload": {
