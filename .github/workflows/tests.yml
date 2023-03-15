@@ -26,7 +26,7 @@ jobs:
           - "8.1"
           - "8.2"
 
-      env:
+    env:
       PHAN_ALLOW_XDEBUG: 0
       PHAN_DISABLE_XDEBUG_WARN: 1
 
