@@ -1,15 +1,15 @@
 # chillerlan/php-settings-container
 
-A container class for immutable settings objects. Not a DI container. PHP 8.1+
-- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy - decouple configuration logic from your application!
+A container class for settings objects - decouple configuration logic from your application! Not a DI container. PHP 8.1+
+- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy.
 
 [![PHP Version Support][php-badge]][php]
 [![version][packagist-badge]][packagist]
 [![license][license-badge]][license]
+[![Continuous Integration][gh-action-badge]][gh-action]
 [![Coverage][coverage-badge]][coverage]
 [![Scrunitizer][scrutinizer-badge]][scrutinizer]
 [![Packagist downloads][downloads-badge]][downloads]
-[![Continuous Integration][gh-action-badge]][gh-action]
 
 [php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-settings-container?logo=php&color=8892BF
 [php]: https://www.php.net/supported-versions.php
@@ -23,15 +23,15 @@ A container class for immutable settings objects. Not a DI container. PHP 8.1+
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-settings-container
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-settings-container/stats
-[gh-action-badge]: https://github.com/chillerlan/php-settings-container/workflows/CI/badge.svg
-[gh-action]: https://github.com/chillerlan/php-settings-container/actions?query=workflow%3A%22CI%22
+[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-settings-container/tests.yml?branch=main&logo=github
+[gh-action]: https://github.com/chillerlan/php-settings-container/actions/workflows/tests.yml?query=branch%3Amain
 
 ## Documentation
 
 ### Installation
 **requires [composer](https://getcomposer.org)**
 
-*composer.json* (note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^2.1` - see [releases](https://github.com/chillerlan/php-settings-container/releases) for valid versions)
+*composer.json* (note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^3.0` - see [releases](https://github.com/chillerlan/php-settings-container/releases) for valid versions)
 ```json
 {
 	"require": {
@@ -45,7 +45,7 @@ Profit!
 
 ## Usage
 
-The `SettingsContainerInterface` (wrapped in`SettingsContainerAbstract` ) provides plug-in functionality for immutable object properties and adds some fancy, like loading/saving JSON, arrays etc. 
+The `SettingsContainerInterface` (wrapped in`SettingsContainerAbstract`) provides plug-in functionality for immutable object properties and adds some fancy, like loading/saving JSON, arrays etc. 
 It takes an `iterable` as the only constructor argument and calls a method with the trait's name on invocation (`MyTrait::MyTrait()`) for each used trait.
 
 ### Simple usage
@@ -57,7 +57,7 @@ class MyContainer extends SettingsContainerAbstract{
 ```
 
 ```php
-// use it just like a \stdClass
+// use it just like a \stdClass (except the properties are fixed)
 $container = new MyContainer;
 $container->foo = 'what';
 $container->bar = 'foo';
@@ -83,23 +83,34 @@ var_dump($container->nope); // -> null
 
 ### Advanced usage
 ```php
+// from library 1
 trait SomeOptions{
 	protected string $foo;
 	protected string $what;
 	
 	// this method will be called in SettingsContainerAbstract::construct()
 	// after the properties have been set
-	protected function SomeOptions(){
+	protected function SomeOptions():void{
 		// just some constructor stuff...
 		$this->foo = strtoupper($this->foo);
 	}
 	
+	/*
+	 * special prefixed magic setters & getters
+	 */
+	
 	// this method will be called from __set() when property $what is set
-	protected function set_what(string $value){
+	protected function set_what(string $value):void{
 		$this->what = md5($value);
+	}
+	
+	// this method is called on __get() for the property $what
+	protected function get_what():string{
+		return 'hash: '.$this->what;
 	}
 }
 
+// from library 2
 trait MoreOptions{
 	protected string $bar = 'whatever'; // provide default values
 }
@@ -122,7 +133,7 @@ var_dump($container->foo); // -> WHATEVER (constructor ran strtoupper on the val
 var_dump($container->bar); // -> nothing
 
 $container->what = 'some value';
-var_dump($container->what); // -> md5 hash of "some value"
+var_dump($container->what); // -> hash: 5946210c9e93ae37891dfe96c3e39614 (custom getter added "hash: ")
 ```
 
 ### API
