@@ -25,7 +25,7 @@
 	},
 	"require-dev": {
 		"phan/phan": "^5.4",
-		"phpunit/phpunit": "^9.5"
+		"phpunit/phpunit": "^9.6"
 	},
 	"autoload": {
 		"psr-4": {
@@ -34,8 +34,7 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"chillerlan\\SettingsTest\\": "tests/",
-			"chillerlan\\SettingsExamples\\": "examples/"
+			"chillerlan\\SettingsTest\\": "tests/"
 		}
 	},
 	"scripts": {
