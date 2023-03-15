@@ -1,6 +1,6 @@
 # chillerlan/php-settings-container
 
-A container class for settings objects - decouple configuration logic from your application! Not a DI container. PHP 8.1+
+A container class for settings objects - decouple configuration logic from your application! Not a DI container.
 - [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy.
 
 [![PHP Version Support][php-badge]][php]
