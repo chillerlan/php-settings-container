@@ -19,7 +19,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
+  strategy:
+    fail-fast: true
+    matrix:
+      php-version:
+        - "8.1"
+        - "8.2"
+
+      env:
       PHAN_ALLOW_XDEBUG: 0
       PHAN_DISABLE_XDEBUG_WARN: 1
 
@@ -30,7 +37,7 @@ jobs:
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.1"
+          php-version: ${{ matrix.php-version }}
           tools: pecl
           coverage: none
           extensions: ast, json
@@ -39,11 +46,13 @@ jobs:
         uses: ramsey/composer-install@v2
 
       - name: "Run phan"
-        run: php vendor/bin/phan
+        run: php vendor/bin/phan --target-php-version=${{ matrix.php-version }}
 
 
   build-docs:
     name: "Build and publish Docs"
+
+    if: github.ref_name == 'main'
 
     runs-on: ubuntu-latest
 
@@ -72,6 +81,8 @@ jobs:
 
   tests:
     name: "Unit Tests"
+
+    needs: static-code-analysis
 
     runs-on: ${{ matrix.os }}
 
