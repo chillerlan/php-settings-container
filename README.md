@@ -8,7 +8,7 @@ A container class for settings objects - decouple configuration logic from your 
 [![license][license-badge]][license]
 [![Continuous Integration][gh-action-badge]][gh-action]
 [![Coverage][coverage-badge]][coverage]
-[![Scrunitizer][scrutinizer-badge]][scrutinizer]
+[![Codacy][codacy-badge]][codacy]
 [![Packagist downloads][downloads-badge]][downloads]
 
 [php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-settings-container?logo=php&color=8892BF
@@ -19,12 +19,12 @@ A container class for settings objects - decouple configuration logic from your 
 [license]: https://github.com/chillerlan/php-settings-container/blob/main/LICENSE
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-settings-container.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-settings-container
-[scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-settings-container.svg?logo=scrutinizer
-[scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-settings-container
+[codacy-badge]: https://img.shields.io/codacy/grade/612a380f27c54fc1851b380896af2a92/main?logo=codacy
+[codacy]: https://www.codacy.com/gh/chillerlan/php-settings-container/dashboard?branch=main
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-settings-container/stats
-[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-settings-container/tests.yml?branch=main&logo=github
-[gh-action]: https://github.com/chillerlan/php-settings-container/actions/workflows/tests.yml?query=branch%3Amain
+[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-settings-container/ci.yml?branch=main&logo=github
+[gh-action]: https://github.com/chillerlan/php-settings-container/actions/workflows/ci.yml?query=branch%3Amain
 
 ## Documentation
 
@@ -45,7 +45,7 @@ Profit!
 
 ## Usage
 
-The `SettingsContainerInterface` (wrapped in`SettingsContainerAbstract`) provides plug-in functionality for immutable object properties and adds some fancy, like loading/saving JSON, arrays etc. 
+The `SettingsContainerInterface` (wrapped in`SettingsContainerAbstract`) provides plug-in functionality for immutable object properties and adds some fancy, like loading/saving JSON, arrays etc.
 It takes an `iterable` as the only constructor argument and calls a method with the trait's name on invocation (`MyTrait::MyTrait()`) for each used trait.
 
 ### Simple usage
@@ -62,7 +62,7 @@ $container = new MyContainer;
 $container->foo = 'what';
 $container->bar = 'foo';
 
-// which is equivalent to 
+// which is equivalent to
 $container = new MyContainer(['bar' => 'foo', 'foo' => 'what']);
 // ...or try
 $container->fromJSON('{"foo": "what", "bar": "foo"}');
@@ -87,23 +87,23 @@ var_dump($container->nope); // -> null
 trait SomeOptions{
 	protected string $foo;
 	protected string $what;
-	
+
 	// this method will be called in SettingsContainerAbstract::construct()
 	// after the properties have been set
 	protected function SomeOptions():void{
 		// just some constructor stuff...
 		$this->foo = strtoupper($this->foo);
 	}
-	
+
 	/*
 	 * special prefixed magic setters & getters
 	 */
-	
+
 	// this method will be called from __set() when property $what is set
 	protected function set_what(string $value):void{
 		$this->what = md5($value);
 	}
-	
+
 	// this method is called on __get() for the property $what
 	protected function get_what():string{
 		return 'hash: '.$this->what;
@@ -119,12 +119,12 @@ trait MoreOptions{
 ```php
 $commonOptions = [
 	// SomeOptions
-	'foo' => 'whatever', 
+	'foo' => 'whatever',
 	// MoreOptions
 	'bar' => 'nothing',
 ];
 
-// now plug the several library options together to a single object 
+// now plug the several library options together to a single object
 $container = new class ($commonOptions) extends SettingsContainerAbstract{
 	use SomeOptions, MoreOptions;
 };
@@ -140,20 +140,20 @@ var_dump($container->what); // -> hash: 5946210c9e93ae37891dfe96c3e39614 (custom
 
 #### [`SettingsContainerAbstract`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerAbstract.php)
 
-method | return  | info
--------- | ----  | -----------
-`__construct(iterable $properties = null)` | - | calls `construct()` internally after the properties have been set
-(protected) `construct()` | void | calls a method with trait name as replacement constructor for each used trait
-`__get(string $property)` | mixed | calls `$this->{'get_'.$property}()` if such a method exists
-`__set(string $property, $value)` | void | calls `$this->{'set_'.$property}($value)` if such a method exists
-`__isset(string $property)` | bool | 
-`__unset(string $property)` | void | 
-`__toString()` | string | a JSON string
-`toArray()` | array | 
-`fromIterable(iterable $properties)` | `SettingsContainerInterface` | 
-`toJSON(int $jsonOptions = null)` | string | accepts [JSON options constants](http://php.net/manual/json.constants.php)
-`fromJSON(string $json)` | `SettingsContainerInterface` | 
-`jsonSerialize()` | mixed | implements the [`JsonSerializable`](https://www.php.net/manual/en/jsonserializable.jsonserialize.php) interface
+| method                                     | return                       | info                                                                                                            |
+|--------------------------------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| `__construct(iterable $properties = null)` | -                            | calls `construct()` internally after the properties have been set                                               |
+| (protected) `construct()`                  | void                         | calls a method with trait name as replacement constructor for each used trait                                   |
+| `__get(string $property)`                  | mixed                        | calls `$this->{'get_'.$property}()` if such a method exists                                                     |
+| `__set(string $property, $value)`          | void                         | calls `$this->{'set_'.$property}($value)` if such a method exists                                               |
+| `__isset(string $property)`                | bool                         |                                                                                                                 |
+| `__unset(string $property)`                | void                         |                                                                                                                 |
+| `__toString()`                             | string                       | a JSON string                                                                                                   |
+| `toArray()`                                | array                        |                                                                                                                 |
+| `fromIterable(iterable $properties)`       | `SettingsContainerInterface` |                                                                                                                 |
+| `toJSON(int $jsonOptions = null)`          | string                       | accepts [JSON options constants](http://php.net/manual/json.constants.php)                                      |
+| `fromJSON(string $json)`                   | `SettingsContainerInterface` |                                                                                                                 |
+| `jsonSerialize()`                          | mixed                        | implements the [`JsonSerializable`](https://www.php.net/manual/en/jsonserializable.jsonserialize.php) interface |
 
 ## Disclaimer
 This might be either an utterly genius or completely stupid idea - you decide. However, i like it and it works.
