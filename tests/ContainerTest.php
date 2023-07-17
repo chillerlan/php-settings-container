@@ -89,7 +89,7 @@ class ContainerTest extends TestCase{
 			'testConstruct' => 'success',
 			'test4'         => null,
 			'test5'         => null,
-			'test6'         => null
+			'test6'         => null,
 		], $container->toArray());
 	}
 
