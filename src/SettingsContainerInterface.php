@@ -52,7 +52,7 @@ interface SettingsContainerInterface extends JsonSerializable{
 	/**
 	 * Sets properties from a given iterable
 	 */
-	public function fromIterable(iterable $properties):SettingsContainerInterface;
+	public function fromIterable(iterable $properties):static;
 
 	/**
 	 * Returns a JSON representation of the settings object
@@ -66,6 +66,6 @@ interface SettingsContainerInterface extends JsonSerializable{
 	 * @throws \Exception
 	 * @throws \JsonException
 	 */
-	public function fromJSON(string $json):SettingsContainerInterface;
+	public function fromJSON(string $json):static;
 
 }

@@ -126,7 +126,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @inheritdoc
 	 */
-	public function fromIterable(iterable $properties):SettingsContainerInterface{
+	public function fromIterable(iterable $properties):static{
 
 		foreach($properties as $key => $value){
 			$this->__set($key, $value);
@@ -145,7 +145,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @inheritdoc
 	 */
-	public function fromJSON(string $json):SettingsContainerInterface{
+	public function fromJSON(string $json):static{
 		$data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
 		return $this->fromIterable($data);
