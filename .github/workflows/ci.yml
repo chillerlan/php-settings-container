@@ -16,7 +16,6 @@ jobs:
 
   tests:
     name: "Unit Tests"
-    needs: static-code-analysis
     runs-on: ${{ matrix.os }}
 
     strategy:
