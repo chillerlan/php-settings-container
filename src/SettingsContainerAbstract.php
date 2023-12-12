@@ -165,6 +165,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @inheritdoc
 	 */
+	#[\ReturnTypeWillChange]
 	public function jsonSerialize(){
 		return $this->toArray();
 	}
