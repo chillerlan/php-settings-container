@@ -153,6 +153,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	/**
 	 * @inheritdoc
+	 * @phan-suppress PhanUndeclaredClassAttribute
 	 */
 	#[\ReturnTypeWillChange]
 	public function jsonSerialize():array{
