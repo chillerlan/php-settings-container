@@ -25,7 +25,9 @@
 	},
 	"require-dev": {
 		"phan/phan": "^5.4",
-		"phpunit/phpunit": "^9.6"
+		"phpmd/phpmd": "^2.13",
+		"phpunit/phpunit": "^9.6",
+		"phpcsstandards/php_codesniffer": "^3.8"
 	},
 	"autoload": {
 		"psr-4": {
