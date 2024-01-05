@@ -6,8 +6,6 @@
  * @license      MIT
  */
 
-namespace chillerlan\SettingsExamples;
-
 use chillerlan\Settings\SettingsContainerAbstract;
 
 require_once __DIR__.'/../vendor/autoload.php';

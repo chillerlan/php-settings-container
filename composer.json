@@ -36,8 +36,7 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"chillerlan\\SettingsTest\\": "tests/",
-			"chillerlan\\SettingsExamples\\": "examples/"
+			"chillerlan\\SettingsTest\\": "tests/"
 		}
 	},
 	"scripts": {
