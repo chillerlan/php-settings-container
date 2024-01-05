@@ -24,8 +24,8 @@
 		"ext-json": "*"
 	},
 	"require-dev": {
-		"phan/phan": "^5.3",
-		"phpunit/phpunit": "^9.5"
+		"phan/phan": "^5.4",
+		"phpunit/phpunit": "^9.6"
 	},
 	"autoload": {
 		"psr-4": {

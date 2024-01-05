@@ -4,10 +4,10 @@
 on:
   push:
     branches:
-      - main
+      - v2.x-php7.4
   pull_request:
     branches:
-      - main
+      - v2.x-php7.4
 
 
 name: "CI"
@@ -23,6 +23,16 @@ jobs:
       PHAN_ALLOW_XDEBUG: 0
       PHAN_DISABLE_XDEBUG_WARN: 1
 
+    strategy:
+      fail-fast: true
+      matrix:
+        php-version:
+          - "7.4"
+          - "8.0"
+          - "8.1"
+          - "8.2"
+          - "8.3"
+
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
@@ -30,47 +40,21 @@ jobs:
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "7.4"
+          php-version: ${{ matrix.php-version }}
           tools: pecl
           coverage: none
           extensions: ast, json
 
       - name: "Update dependencies with composer"
-        run: composer update --no-interaction --no-ansi --no-progress --no-suggest
+        uses: ramsey/composer-install@v2
 
       - name: "Run phan"
-        run: php vendor/bin/phan
+        run: php vendor/bin/phan --target-php-version=${{ matrix.php-version }}
 
-  build-docs:
-    name: "Build and publish Docs"
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: "Checkout sources"
-        uses: actions/checkout@v3
-
-      - name: "Install PHP"
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.1"
-          coverage: none
-          tools: phpDocumentor
-          extensions: json
-
-      - name: "Build Docs"
-        run: phpdoc --config=phpdoc.xml
-
-      - name: "Publish Docs to gh-pages"
-        uses: JamesIves/github-pages-deploy-action@v4.3.4
-        with:
-          branch: gh-pages
-          folder: docs
-          clean: true
 
   tests:
     name: "Unit Tests"
-
+    needs: static-code-analysis
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -83,6 +67,8 @@ jobs:
           - "7.4"
           - "8.0"
           - "8.1"
+          - "8.2"
+          - "8.3"
 
     steps:
       - name: "Checkout"
@@ -96,10 +82,10 @@ jobs:
           extensions: json
 
       - name: "Install dependencies with composer"
-        run: composer update --no-ansi --no-interaction --no-progress --no-suggest
+        uses: ramsey/composer-install@v2
 
       - name: "Run tests with phpunit"
-        run: php vendor/phpunit/phpunit/phpunit --configuration=phpunit.xml
+        run: php vendor/phpunit/phpunit/phpunit --configuration=phpunit.xml.dist
 
       - name: "Send code coverage report to Codecov.io"
         uses: codecov/codecov-action@v3
