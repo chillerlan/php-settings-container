@@ -23,7 +23,7 @@ trait TestOptionsTrait{
 
 	protected string|null $test4 = null;
 
-	protected ?string $test5 = null;
+	protected string $test5 = '';
 
 	protected string|null $test6 = null;
 

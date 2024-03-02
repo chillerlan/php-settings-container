@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace chillerlan\SettingsTest;
 
 use PHPUnit\Framework\TestCase;
-use JsonException, TypeError;
-use function sha1;
+use InvalidArgumentException, JsonException, TypeError;
+use function json_encode, serialize, sha1, unserialize;
 
 class ContainerTest extends TestCase{
 
@@ -89,18 +89,27 @@ class ContainerTest extends TestCase{
 			'test2'         => true,
 			'testConstruct' => 'success',
 			'test4'         => null,
-			'test5'         => null,
-			'test6'         => null,
+			'test5'         => '',
+			'test6'         => 'null', // value ran through the getter
 		], $container->toArray());
+
+		$container->fromIterable($container->toArray());
+
+		$this::assertSame('_test5', $container->test5); // value ran through the setter
 	}
 
 	public function testToJSON():void{
 		$container = (new TestContainer)->fromJSON('{"test1":"no","test2":true,"testConstruct":"success"}');
 
-		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":null,"test6":null}';
+		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":"","test6":"null"}';
 
 		$this::assertSame($expected, $container->toJSON());
 		$this::assertSame($expected, (string)$container);
+		$this::assertSame($expected, json_encode($container)); // JsonSerializable
+
+		$container->fromJSON($expected);
+
+		$this::assertSame('_test5', $container->test5);
 	}
 
 	public function testFromJsonException():void{
@@ -114,4 +123,38 @@ class ContainerTest extends TestCase{
 		(new TestContainer)->fromJSON('2');
 	}
 
+	public function testSerializable():void{
+		$container = new TestContainer([
+			'test1'         => 'no',
+			'test2'         => true,
+			'testConstruct' => 'success',
+		]);
+
+		$container = unserialize(serialize($container)); // object should remain in the same state
+
+		// serialize will return the object in its current state including private properties
+		$expected = 'O:37:"chillerlan\SettingsTest\TestContainer":7:{s:5:"test3";s:4:"what";s:5:"test1";s:2:"no";'.
+		            's:5:"test2";b:1;s:13:"testConstruct";s:7:"success";s:5:"test4";N;s:5:"test5";s:0:"";s:5:"test6";N;}';
+
+		$this::assertSame($expected, $container->serialize());
+		$this::assertSame($expected, serialize($container));
+
+		$container->unserialize($expected);
+
+		$this::assertSame('', $container->test5);
+	}
+
+	public function testUnserializeInvalidDataException():void{
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage('The given serialized string is invalid');
+
+		(new TestContainer)->unserialize('foo');
+	}
+
+	public function testUnserializeInvalidObjectException():void{
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage('The unserialized object does not match the class of this container');
+
+		(new TestContainer)->unserialize('O:8:"stdClass":0:{}');
+	}
 }
