@@ -127,7 +127,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -187,6 +187,13 @@
 <dd>Checks if $property is set (aka. not null), excluding private properties</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___serialize">__serialize()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Returns a serialized string representation of the object in its current state (except static/readonly properties)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___set">__set()</a>
     <span>
                                 &nbsp;: void    </span>
@@ -198,6 +205,13 @@
     <span>
                                 &nbsp;: string    </span>
 </dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unserialize">__unserialize()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Restores the data from the given array to the current instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unset">__unset()</a>
@@ -223,8 +237,15 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_jsonSerialize">jsonSerialize()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_serialize">serialize()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns a serialized string representation of the object in its current state (except static/readonly properties)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_toArray">toArray()</a>
@@ -239,6 +260,13 @@
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns a JSON representation of the settings object</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_unserialize">unserialize()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Restores the data (except static/readonly properties) from the given serialized object to the current instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_construct">construct()</a>
@@ -277,7 +305,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -285,7 +313,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">iterable&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$properties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">iterable&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$properties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -294,7 +322,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$properties</span>
-                : <span class="phpdocumentor-signature__argument__return-type">iterable&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">iterable&lt;string|int, mixed&gt;|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -319,7 +347,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -379,7 +407,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -431,6 +459,64 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method___serialize">
+        __serialize()
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___serialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">211</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a serialized string representation of the object in its current state (except static/readonly properties)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__serialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___serialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritdoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-Settings-SettingsContainerInterface.html#method_toArray"><abbr title="\chillerlan\Settings\SettingsContainerInterface::toArray()">SettingsContainerInterface::toArray()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method___set">
         __set()
         <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___set" class="headerlink"><i class="fas fa-link"></i></a>
@@ -439,7 +525,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -502,7 +588,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -543,6 +629,70 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method___unserialize">
+        __unserialize()
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unserialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">232</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Restores the data from the given array to the current instance</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__unserialize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unserialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritdoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-Settings-SettingsContainerInterface.html#method_fromIterable"><abbr title="\chillerlan\Settings\SettingsContainerInterface::fromIterable()">SettingsContainerInterface::fromIterable()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method___unset">
         __unset()
         <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unset" class="headerlink"><i class="fas fa-link"></i></a>
@@ -551,7 +701,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
@@ -607,7 +757,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -667,7 +817,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 
     </aside>
 
@@ -727,14 +877,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">158</span>
+    <span class="phpdocumentor-element-found-in__line">164</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -754,18 +904,71 @@
                                                                                 
                                              
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">noinspection</span>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_serialize">
+        serialize()
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_serialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">174</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a serialized string representation of the object in its current state (except static/readonly properties)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">serialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_serialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritdoc</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>PhpMixedReturnTypeCanBeReducedInspection</p>
-</section>
-
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-Settings-SettingsContainerInterface.html#method_toArray"><abbr title="\chillerlan\Settings\SettingsContainerInterface::toArray()">SettingsContainerInterface::toArray()</abbr></a></span>
+                                        
+                                             
                                     </dd>
                                             </dl>
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -781,7 +984,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
@@ -831,7 +1034,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
@@ -839,7 +1042,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">toJSON</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$jsonOptions</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">toJSON</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$jsonOptions</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -848,7 +1051,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$jsonOptions</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -880,6 +1083,70 @@
                     <article
         class="phpdocumentor-element
             -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_unserialize">
+        unserialize()
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_unserialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">184</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Restores the data (except static/readonly properties) from the given serialized object to the current instance</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">unserialize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_unserialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritdoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-Settings-SettingsContainerInterface.html#method_fromIterable"><abbr title="\chillerlan\Settings\SettingsContainerInterface::fromIterable()">SettingsContainerInterface::fromIterable()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
             -protected
                                                         "
 >
@@ -891,7 +1158,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SettingsContainerAbstract.php"><a href="files/src-settingscontainerabstract.html"><abbr title="src/SettingsContainerAbstract.php">SettingsContainerAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -1026,14 +1293,18 @@
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___construct">__construct()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___get">__get()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___isset">__isset()</a></li>
+                                            <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___serialize">__serialize()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___set">__set()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___toString">__toString()</a></li>
+                                            <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unserialize">__unserialize()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unset">__unset()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_fromIterable">fromIterable()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_fromJSON">fromJSON()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_jsonSerialize">jsonSerialize()</a></li>
+                                            <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_serialize">serialize()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_toArray">toArray()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_toJSON">toJSON()</a></li>
+                                            <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_unserialize">unserialize()</a></li>
                                             <li><a href="classes/chillerlan-Settings-SettingsContainerAbstract.html#method_construct">construct()</a></li>
                                     </ul>
             </li>

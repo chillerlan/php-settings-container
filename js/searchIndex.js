@@ -66,6 +66,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method_jsonSerialize"
         },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003Aserialize\u0028\u0029",
+            "name": "serialize",
+            "summary": "Returns\u0020a\u0020serialized\u0020string\u0020representation\u0020of\u0020the\u0020object\u0020in\u0020its\u0020current\u0020state\u0020\u0028except\u0020static\/readonly\u0020properties\u0029",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method_serialize"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003Aunserialize\u0028\u0029",
+            "name": "unserialize",
+            "summary": "Restores\u0020the\u0020data\u0020\u0028except\u0020static\/readonly\u0020properties\u0029\u0020from\u0020the\u0020given\u0020serialized\u0020object\u0020to\u0020the\u0020current\u0020instance",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method_unserialize"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003A__serialize\u0028\u0029",
+            "name": "__serialize",
+            "summary": "Returns\u0020a\u0020serialized\u0020string\u0020representation\u0020of\u0020the\u0020object\u0020in\u0020its\u0020current\u0020state\u0020\u0028except\u0020static\/readonly\u0020properties\u0029",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method___serialize"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003A__unserialize\u0028\u0029",
+            "name": "__unserialize",
+            "summary": "Restores\u0020the\u0020data\u0020from\u0020the\u0020given\u0020array\u0020to\u0020the\u0020current\u0020instance",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unserialize"
+        },                {
             "fqsen": "\\chillerlan\\Settings\\SettingsContainerInterface",
             "name": "SettingsContainerInterface",
             "summary": "a\u0020generic\u0020container\u0020with\u0020magic\u0020getter\u0020and\u0020setter",
@@ -155,6 +175,21 @@ Search.appendIndex(
             "name": "testFromJsonTypeError",
             "summary": "",
             "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testFromJsonTypeError"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ContainerTest\u003A\u003AtestSerializable\u0028\u0029",
+            "name": "testSerializable",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testSerializable"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ContainerTest\u003A\u003AtestUnserializeInvalidDataException\u0028\u0029",
+            "name": "testUnserializeInvalidDataException",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testUnserializeInvalidDataException"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ContainerTest\u003A\u003AtestUnserializeInvalidObjectException\u0028\u0029",
+            "name": "testUnserializeInvalidObjectException",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testUnserializeInvalidObjectException"
         },                {
             "fqsen": "\\chillerlan\\SettingsTest\\TestContainer",
             "name": "TestContainer",
