@@ -17,15 +17,15 @@ trait TestOptionsTrait{
 
 	protected string $test1 = 'foo';
 
-	protected ?bool $test2 = null;
+	protected bool|null $test2 = null;
 
 	protected string $testConstruct;
 
-	protected ?string $test4 = null;
+	protected string|null $test4 = null;
 
 	protected ?string $test5 = null;
 
-	protected ?string $test6 = null;
+	protected string|null $test6 = null;
 
 	protected function TestOptionsTrait():void{
 		$this->testConstruct = 'success';

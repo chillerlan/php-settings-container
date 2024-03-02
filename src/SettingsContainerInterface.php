@@ -59,7 +59,7 @@ interface SettingsContainerInterface extends JsonSerializable{
 	 * Returns a JSON representation of the settings object
 	 * @see \json_encode()
 	 */
-	public function toJSON(int $jsonOptions = null):string;
+	public function toJSON(int|null $jsonOptions = null):string;
 
 	/**
 	 * Sets properties from a given JSON string
