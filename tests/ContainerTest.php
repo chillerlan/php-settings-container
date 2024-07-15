@@ -27,6 +27,7 @@ class ContainerTest extends TestCase{
 
 		$this::assertSame('test1', $container->test1);
 		$this::assertSame(true, $container->test2);
+		/** @phpstan-ignore-next-line */
 		$this::assertNull($container->test3);
 		$this::assertSame('test4', $container->test4);
 
@@ -38,13 +39,16 @@ class ContainerTest extends TestCase{
 
 		$this::assertSame('foo', $container->test1);
 		$this::assertNull($container->test2);
+		/** @phpstan-ignore-next-line */
 		$this::assertNull($container->test3);
 		$this::assertNull($container->test4);
+		/** @phpstan-ignore-next-line */
 		$this::assertNull($container->foo);
 
 		// isset test
 		$this::assertTrue(isset($container->test1));
 		$this::assertFalse(isset($container->test2));
+		/** @phpstan-ignore-next-line */
 		$this::assertFalse(isset($container->test3));
 		$this::assertFalse(isset($container->test4));
 		$this::assertFalse(isset($container->foo));
@@ -62,10 +66,12 @@ class ContainerTest extends TestCase{
 		$container = new TestContainer;
 		$container->test1 = 'bar';
 		$container->test2 = false;
+		/** @phpstan-ignore-next-line */
 		$container->test3 = 'nope';
 
 		$this::assertSame('bar', $container->test1);
 		$this::assertSame(false, $container->test2);
+		/** @phpstan-ignore-next-line */
 		$this::assertNull($container->test3);
 
 		// unset
@@ -130,6 +136,7 @@ class ContainerTest extends TestCase{
 			'testConstruct' => 'success',
 		]);
 
+		/** @var \chillerlan\SettingsTest\TestContainer $container */
 		$container = unserialize(serialize($container)); // object should remain in the same state
 
 		// serialize will return the object in its current state including private properties

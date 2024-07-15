@@ -13,6 +13,14 @@ namespace chillerlan\SettingsTest;
 
 use function sha1;
 
+/**
+ * @property string      $test1
+ * @property bool|null   $test2
+ * @property string      $testConstruct
+ * @property string|null $test4
+ * @property string      $test5
+ * @property string|null $test6
+ */
 trait TestOptionsTrait{
 
 	protected string $test1 = 'foo';

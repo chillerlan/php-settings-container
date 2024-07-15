@@ -60,7 +60,7 @@ class MySettings extends SettingsContainerAbstract{
 	use SomeOptions, MoreOptions; // ...
 };
 
-$container = new MySettings($commonOptions);
+$container = new MySettings($commonOptions); // wtf phpstorm???
 
 var_dump($container->foo); // -> WHATEVER (constructor ran strtoupper on the value)
 var_dump($container->bar); // -> nothing

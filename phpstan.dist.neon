@@ -1,0 +1,12 @@
+# https://phpstan.org/config-reference
+
+parameters:
+	level: 9
+	paths:
+	- examples
+	- src
+	- tests
+	tmpDir: .build/phpstan-cache
+
+includes:
+	- phar://phpstan.phar/conf/bleedingEdge.neon

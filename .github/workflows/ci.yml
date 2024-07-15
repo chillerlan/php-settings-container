@@ -1,6 +1,8 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 # https://github.com/sebastianbergmann/phpunit/blob/master/.github/workflows/ci.yml
 
+name: "CI"
+
 on:
   push:
     branches:
@@ -10,7 +12,10 @@ on:
       - main
 
 
-name: "CI"
+env:
+  PHP_EXTENSIONS: json
+  PHP_INI_VALUES: memory_limit=-1, error_reporting=-1, display_errors=On
+
 
 jobs:
 
@@ -39,15 +44,15 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          tools: pecl
+          extensions: ${{ env.PHP_EXTENSIONS }}
+          ini-values: ${{ env.PHP_INI_VALUES }}
           coverage: none
-          extensions: ast, json
 
       - name: "Update dependencies with composer"
         uses: ramsey/composer-install@v3
 
-      - name: "Run phan"
-        run: php vendor/bin/phan --target-php-version=${{ matrix.php-version }}
+      - name: "Run PHPStan"
+        run: php vendor/bin/phpstan
 
 
   build-docs:
@@ -103,8 +108,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
+          extensions: ${{ env.PHP_EXTENSIONS }}
+          ini-values: ${{ env.PHP_INI_VALUES }}
           coverage: pcov
-          extensions: json
 
       - name: "Install dependencies with composer"
         uses: ramsey/composer-install@v3
