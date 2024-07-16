@@ -16,6 +16,5 @@ use chillerlan\Settings\SettingsContainerAbstract;
 class TestContainer extends SettingsContainerAbstract{
 	use TestOptionsTrait;
 
-	/** @phpstan-ignore-next-line */
 	private string $test3 = 'what';
 }

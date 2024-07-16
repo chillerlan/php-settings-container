@@ -8,6 +8,9 @@ parameters:
 		- src
 		- tests
 
+	treatPhpDocTypesAsCertain: false
+
 includes:
+	- phpstan-baseline.neon
 	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
 	- vendor/phpstan/phpstan-deprecation-rules/rules.neon

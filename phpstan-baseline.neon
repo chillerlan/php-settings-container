@@ -1,0 +1,31 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$foo\\.$#"
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			message: "#^Access to private property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$test3\\.$#"
+			count: 4
+			path: tests/ContainerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with string will always evaluate to false\\.$#"
+			count: 2
+			path: tests/ContainerTest.php
+
+		-
+			message: "#^Property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$test3 \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			message: "#^Property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$test3 is never read, only written\\.$#"
+			count: 1
+			path: tests/TestContainer.php
