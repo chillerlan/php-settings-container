@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          cacheResultFile=".build/phpunit.result.cache"
          colors="true"
@@ -14,7 +14,7 @@
 	</testsuites>
 	<source>
 		<include>
-			<directory>./src</directory>
+			<directory>src</directory>
 		</include>
 	</source>
 	<coverage>
@@ -23,7 +23,4 @@
 			<xml outputDirectory=".build/coverage/coverage-xml"/>
 		</report>
 	</coverage>
-	<logging>
-		<junit outputFile=".build/logs/junit.xml"/>
-	</logging>
 </phpunit>
