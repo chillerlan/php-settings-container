@@ -2,11 +2,12 @@
 
 parameters:
 	level: 9
-	paths:
-	- examples
-	- src
-	- tests
 	tmpDir: .build/phpstan-cache
+	paths:
+		- examples
+		- src
+		- tests
 
 includes:
-	- phar://phpstan.phar/conf/bleedingEdge.neon
+	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
+	- vendor/phpstan/phpstan-deprecation-rules/rules.neon

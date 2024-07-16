@@ -1,5 +1,6 @@
 /.build            export-ignore
 /.github           export-ignore
+/.idea             export-ignore
 /.phan             export-ignore
 /.phpdoc           export-ignore
 /docs              export-ignore
@@ -13,5 +14,6 @@
 /phpdoc.xml.dist   export-ignore
 /phpmd.xml.dist    export-ignore
 /phpunit.xml.dist  export-ignore
+/phpstan.dist.neon export-ignore
 
 *.php diff=php
