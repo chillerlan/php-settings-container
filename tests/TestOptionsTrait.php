@@ -7,11 +7,20 @@
  * @copyright    2018 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 namespace chillerlan\SettingsTest;
 
 use function sha1;
 
+/**
+ * @property string      $test1
+ * @property bool|null   $test2
+ * @property string      $testConstruct
+ * @property string|null $test4
+ * @property string      $test5
+ * @property string|null $test6
+ */
 trait TestOptionsTrait{
 
 	protected string $test1 = 'foo';
@@ -22,7 +31,7 @@ trait TestOptionsTrait{
 
 	protected ?string $test4 = null;
 
-	protected ?string $test5 = null;
+	protected string $test5 = '';
 
 	protected ?string $test6 = null;
 
@@ -30,7 +39,7 @@ trait TestOptionsTrait{
 		$this->testConstruct = 'success';
 	}
 
-	protected function set_test5($value):void{
+	protected function set_test5(string $value):void{
 		$this->test5 = $value.'_test5';
 	}
 

@@ -7,16 +7,17 @@
  * @copyright    2018 Smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 namespace chillerlan\SettingsTest;
 
 use PHPUnit\Framework\TestCase;
-use JsonException, TypeError;
-use function sha1;
+use InvalidArgumentException, JsonException, TypeError;
+use function json_encode, serialize, sha1, unserialize;
 
 class ContainerTest extends TestCase{
 
-	public function testConstruct(){
+	public function testConstruct():void{
 		$container = new TestContainer([
 			'test1' => 'test1',
 			'test2' => true,
@@ -32,7 +33,7 @@ class ContainerTest extends TestCase{
 		$this::assertSame('success', $container->testConstruct);
 	}
 
-	public function testGet(){
+	public function testGet():void{
 		$container = new TestContainer;
 
 		$this::assertSame('foo', $container->test1);
@@ -57,7 +58,7 @@ class ContainerTest extends TestCase{
 		$this::assertSame('null', $container->test6);
 	}
 
-	public function testSet(){
+	public function testSet():void{
 		$container = new TestContainer;
 		$container->test1 = 'bar';
 		$container->test2 = false;
@@ -76,7 +77,7 @@ class ContainerTest extends TestCase{
 		$this::assertSame('bar_test5', $container->test5);
 	}
 
-	public function testToArray(){
+	public function testToArray():void{
 		$container = new TestContainer([
 			'test1'         => 'no',
 			'test2'         => true,
@@ -88,26 +89,36 @@ class ContainerTest extends TestCase{
 			'test2'         => true,
 			'testConstruct' => 'success',
 			'test4'         => null,
-			'test5'         => null,
-			'test6'         => null,
+			'test5'         => '',
+			'test6'         => 'null', // value ran through the getter
 		], $container->toArray());
+
+		$container->fromIterable($container->toArray());
+
+		$this::assertSame('_test5', $container->test5); // value ran through the setter
 	}
 
-	public function testToJSON(){
+	public function testToJSON():void{
 		$container = (new TestContainer)->fromJSON('{"test1":"no","test2":true,"testConstruct":"success"}');
 
-		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":null,"test6":null}';
+		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":"","test6":"null"}';
 
 		$this::assertSame($expected, $container->toJSON());
 		$this::assertSame($expected, (string)$container);
+		$this::assertSame($expected, json_encode($container)); // JsonSerializable
+
+		$container->fromJSON($expected);
+
+		$this::assertSame('_test5', $container->test5);
 	}
 
-	public function testFromJsonException(){
+	public function testFromJsonException():void{
 		$this->expectException(JsonException::class);
 		(new TestContainer)->fromJSON('-');
 
 	}
-	public function testFromJsonTypeError(){
+
+	public function testFromJsonTypeError():void{
 		$this->expectException(TypeError::class);
 		(new TestContainer)->fromJSON('2');
 	}
