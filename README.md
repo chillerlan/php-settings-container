@@ -20,7 +20,7 @@ A container class for settings objects - decouple configuration logic from your 
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-settings-container.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-settings-container
 [codacy-badge]: https://img.shields.io/codacy/grade/bd2467799e2943d2853ce3ebad5af490/main?logo=codacy
-[codacy]: https://www.codacy.com/gh/chillerlan/php-settings-container/dashboard?branch=main
+[codacy]: https://app.codacy.com/gh/chillerlan/php-settings-container/dashboard?branch=main
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-settings-container/stats
 [gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-settings-container/ci.yml?branch=main&logo=github
