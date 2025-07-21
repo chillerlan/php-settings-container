@@ -49,9 +49,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function __get(string $property):mixed{
 
 		if(!property_exists($this, $property) || $this->isPrivate($property)){
@@ -67,9 +64,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		return $this->{$property};
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function __set(string $property, mixed $value):void{
 
 		if(!property_exists($this, $property) || $this->isPrivate($property)){
@@ -87,9 +81,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		$this->{$property} = $value;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function __isset(string $property):bool{
 		return isset($this->{$property}) && !$this->isPrivate($property);
 	}
@@ -101,9 +92,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		return (new ReflectionProperty($this, $property))->isPrivate();
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function __unset(string $property):void{
 
 		if($this->__isset($property)){
@@ -112,16 +100,10 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function __toString():string{
 		return $this->toJSON();
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function toArray():array{
 		$properties = [];
 
@@ -133,7 +115,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	}
 
 	/**
-	 * @inheritdoc
+	 * @param iterable<string, mixed> $properties
 	 */
 	public function fromIterable(iterable $properties):static{
 
@@ -144,9 +126,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		return $this;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function toJSON(int|null $jsonOptions = null):string{
 		$json = json_encode($this, ($jsonOptions ?? 0));
 
@@ -157,9 +136,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		return $json;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function fromJSON(string $json):static{
 		/** @phpstan-var array<string, mixed> $data */
 		$data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
@@ -168,7 +144,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	}
 
 	/**
-	 * @inheritdoc
 	 * @return array<string, mixed>
 	 */
 	public function jsonSerialize():array{
@@ -178,7 +153,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * Returns a serialized string representation of the object in its current state (except static/readonly properties)
 	 *
-	 * @inheritdoc
 	 * @see \chillerlan\Settings\SettingsContainerInterface::toArray()
 	 */
 	public function serialize():string{
@@ -188,8 +162,9 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * Restores the data (except static/readonly properties) from the given serialized object to the current instance
 	 *
-	 * @inheritdoc
 	 * @see \chillerlan\Settings\SettingsContainerInterface::fromIterable()
+	 *
+	 * @throws \InvalidArgumentException
 	 */
 	public function unserialize(string $data):void{
 		$obj = unserialize($data);
@@ -215,7 +190,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * Returns a serialized string representation of the object in its current state (except static/readonly properties)
 	 *
-	 * @inheritdoc
 	 * @see \chillerlan\Settings\SettingsContainerInterface::toArray()
 	 */
 	public function __serialize():array{
@@ -236,7 +210,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * Restores the data from the given array to the current instance
 	 *
-	 * @inheritdoc
 	 * @see \chillerlan\Settings\SettingsContainerInterface::fromIterable()
 	 *
 	 * @param array<string, mixed> $data

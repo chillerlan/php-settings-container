@@ -5,13 +5,14 @@
  * @copyright    2018 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 use chillerlan\Settings\SettingsContainerAbstract;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
 // from library 1
-trait SomeOptions{
+trait SomeOptionsTrait{
 	protected string $foo;
 	protected string $what;
 
@@ -38,7 +39,7 @@ trait SomeOptions{
 }
 
 // from library 2
-trait MoreOptions{
+trait MoreOptionsTrait{
 	protected string $bar = 'whatever'; // provide default values
 }
 
@@ -57,8 +58,8 @@ $commonOptions = [
  * @property string $bar
  */
 class MySettings extends SettingsContainerAbstract{
-	use SomeOptions, MoreOptions; // ...
-};
+	use SomeOptionsTrait, MoreOptionsTrait; // ...
+}
 
 $container = new MySettings($commonOptions); // wtf phpstorm???
 
