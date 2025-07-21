@@ -24,6 +24,7 @@
 		"ext-json": "*"
 	},
 	"require-dev": {
+		"phan/phan": "^5.5.0",
 		"phpmd/phpmd": "^2.15",
 		"phpstan/phpstan": "^2.1.18",
 		"phpstan/phpstan-deprecation-rules": "^2.0.3",
@@ -42,6 +43,7 @@
 		}
 	},
 	"scripts": {
+		"phan": "@php vendor/bin/phan",
 		"phpcs": "@php vendor/bin/phpcs",
 		"phpstan": "@php vendor/bin/phpstan",
 		"phpunit": "@php vendor/bin/phpunit"
