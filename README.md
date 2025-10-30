@@ -1,7 +1,7 @@
 # chillerlan/php-settings-container
 
 A container class for settings objects - decouple configuration logic from your application! Not a DI container.
-- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides immutable properties with magic getter & setter and some fancy.
+- [`SettingsContainerInterface`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerInterface.php) provides fancy [property hooks](https://wiki.php.net/rfc/property-hooks) for PHP < 8.4.
 
 [![PHP Version Support][php-badge]][php]
 [![version][packagist-badge]][packagist]
@@ -163,5 +163,5 @@ var_dump($container->what); // -> hash: 5946210c9e93ae37891dfe96c3e39614 (custom
 | `__unserialize(array $data)`               | void                         | implements the [`Serializable`](https://www.php.net/manual/en/language.oop5.magic.php#object.unserialize) interface |
 
 ## Disclaimer
-This might be either an utterly genius or completely stupid idea - you decide. However, i like it and it works.
+This might be either an absolutely brilliant or completely stupid idea - you decide. (in hindsight it was a great idea I guess - property hooks made their way into PHP 8.4)
 Also, this is not a dependency injection container. Stop using DI containers FFS.
