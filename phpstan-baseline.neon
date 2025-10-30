@@ -1,31 +1,55 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Access to an undefined property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$foo\\.$#"
+			rawMessage: Access to an undefined property chillerlan\SettingsTest\TestContainer::$foo.
+			identifier: property.notFound
 			count: 1
 			path: tests/ContainerTest.php
 
 		-
-			message: "#^Access to private property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$test3\\.$#"
-			count: 4
+			rawMessage: Access to private property chillerlan\SettingsTest\TestContainer::$test3.
+			identifier: property.private
+			count: 5
 			path: tests/ContainerTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with true will always evaluate to false\\.$#"
+			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertFalse() with true will always evaluate to false.'
+			identifier: staticMethod.impossibleType
 			count: 1
 			path: tests/ContainerTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with string will always evaluate to false\\.$#"
+			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertFalse() with true will always evaluate to true.'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertNull() with string will always evaluate to false.'
+			identifier: staticMethod.impossibleType
 			count: 2
 			path: tests/ContainerTest.php
 
 		-
-			message: "#^Property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$test3 \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertTrue() with true will always evaluate to true.'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/ContainerTest.php
 
 		-
-			message: "#^Property chillerlan\\\\SettingsTest\\\\TestContainer\\:\\:\\$test3 is never read, only written\\.$#"
+			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test1 (string) in isset() is not nullable.'
+			identifier: isset.property
+			count: 2
+			path: tests/ContainerTest.php
+
+		-
+			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test3 (string) in isset() is not nullable.'
+			identifier: isset.property
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
+			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test3 is never read, only written.'
+			identifier: property.onlyWritten
 			count: 1
 			path: tests/TestContainer.php
