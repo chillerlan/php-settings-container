@@ -86,6 +86,16 @@ Search.appendIndex(
             "summary": "Restores\u0020the\u0020data\u0020from\u0020the\u0020given\u0020array\u0020to\u0020the\u0020current\u0020instance",
             "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unserialize"
         },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003ASET_PREFIX",
+            "name": "SET_PREFIX",
+            "summary": "",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#constant_SET_PREFIX"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003AGET_PREFIX",
+            "name": "GET_PREFIX",
+            "summary": "",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#constant_GET_PREFIX"
+        },                {
             "fqsen": "\\chillerlan\\Settings\\SettingsContainerInterface",
             "name": "SettingsContainerInterface",
             "summary": "a\u0020generic\u0020container\u0020with\u0020magic\u0020getter\u0020and\u0020setter",
