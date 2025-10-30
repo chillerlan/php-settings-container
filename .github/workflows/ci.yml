@@ -35,10 +35,11 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+#          - "8.5"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
@@ -68,12 +69,12 @@ jobs:
 
     steps:
       - name: "Checkout sources"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.1"
+          php-version: "8.4"
           coverage: none
           tools: phpDocumentor
           extensions: json
@@ -105,10 +106,11 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
+          - "8.5"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v2
@@ -125,7 +127,7 @@ jobs:
         run: php vendor/phpunit/phpunit/phpunit --configuration=phpunit.xml.dist
 
       - name: "Send code coverage report to Codecov.io"
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: .build/coverage/clover.xml
