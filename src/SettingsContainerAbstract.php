@@ -18,6 +18,9 @@ use const JSON_THROW_ON_ERROR;
 
 abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
+	protected const SET_PREFIX = 'set_';
+	protected const GET_PREFIX = 'get_';
+
 	/**
 	 * SettingsContainerAbstract constructor.
 	 *
@@ -55,10 +58,8 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 			return null;
 		}
 
-		$method = 'get_'.$property;
-
-		if(method_exists($this, $method)){
-			return $this->{$method}();
+		if(method_exists($this, static::GET_PREFIX.$property)){
+			return $this->{static::GET_PREFIX.$property}();
 		}
 
 		return $this->{$property};
@@ -70,10 +71,8 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 			return;
 		}
 
-		$method = 'set_'.$property;
-
-		if(method_exists($this, $method)){
-			$this->{$method}($value);
+		if(method_exists($this, static::SET_PREFIX.$property)){
+			$this->{static::SET_PREFIX.$property}($value);
 
 			return;
 		}
