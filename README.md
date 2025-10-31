@@ -85,8 +85,10 @@ var_dump($container->nope); // -> null
 ```
 
 ### Advanced usage
+
+Suppose the following trait from library 1:
+
 ```php
-// from library 1
 trait SomeOptions{
 	protected string $foo;
 	protected string $what;
@@ -99,7 +101,7 @@ trait SomeOptions{
 	}
 
 	/*
-	 * special prefixed magic setters & getters
+	 * special prefixed magic setters & getters ("set_"/"get_" + property name)
 	 */
 
 	// this method will be called from __set() when property $what is set
@@ -112,12 +114,17 @@ trait SomeOptions{
 		return 'hash: '.$this->what;
 	}
 }
+```
 
-// from library 2
+And another trait from library 2:
+
+```php
 trait MoreOptions{
 	protected string $bar = 'whatever'; // provide default values
 }
 ```
+
+We can now plug the several library options together to a single class/object:
 
 ```php
 $commonOptions = [
@@ -127,7 +134,6 @@ $commonOptions = [
 	'bar' => 'nothing',
 ];
 
-// now plug the several library options together to a single object
 $container = new class ($commonOptions) extends SettingsContainerAbstract{
 	use SomeOptions, MoreOptions;
 };
@@ -139,7 +145,7 @@ $container->what = 'some value';
 var_dump($container->what); // -> hash: 5946210c9e93ae37891dfe96c3e39614 (custom getter added "hash: ")
 ```
 
-#### A note on property hooks (PHP 8.4+)
+### A note on property hooks (PHP 8.4+)
 
 Property hooks are called whenever a property is accessed (except from within the hook itself of course), which means that the custom get/set methods this library allows would conflict when a custom method is defined for a property that also has a hook defined.
 To prevent double method calls, the internal methods `hasSetHook()` and `hasGetHook()` have been introduced, and are called whenever the magic get/set methods are called: when both, a custom method and a property hook exist, only the property hook will be called.
@@ -206,5 +212,5 @@ class PropertyHooksContainer extends SettingsContainerAbstract{
 
 
 ## Disclaimer
-This might be either an absolutely brilliant or completely stupid idea - you decide. (in hindsight it was a great idea I guess - property hooks made their way into PHP 8.4)
-Also, this is not a dependency injection container. Stop using DI containers FFS.
+This might be either an absolutely brilliant or completely stupid idea - you decide (in hindsight it was a great idea I guess - property hooks made their way into PHP 8.4).
+<br/>Also, this is not a dependency injection container. Stop using DI containers FFS.
