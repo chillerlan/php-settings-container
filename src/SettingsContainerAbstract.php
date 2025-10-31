@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace chillerlan\Settings;
 
-use InvalidArgumentException, JsonException, ReflectionClass, ReflectionProperty;
-use function array_keys, get_object_vars, is_object, json_decode, json_encode,
-	json_last_error_msg, method_exists, property_exists, serialize, unserialize;
+use InvalidArgumentException, JsonException, ReflectionException, ReflectionObject, ReflectionProperty;
+use function is_object, json_decode, json_encode, json_last_error_msg, method_exists, property_exists, serialize, unserialize;
 use const JSON_THROW_ON_ERROR;
+use const PHP_VERSION_ID;
 
 abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
@@ -40,7 +40,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	 * (remember pre-php5 classname constructors? yeah, basically this.)
 	 */
 	protected function construct():void{
-		$traits = (new ReflectionClass($this))->getTraits();
+		$traits = (new ReflectionObject($this))->getTraits();
 
 		foreach($traits as $trait){
 			$method = $trait->getShortName();
@@ -53,15 +53,15 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	}
 
 	public function __get(string $property):mixed{
-
+		// back out if the property is inaccessible
 		if(!property_exists($this, $property) || $this->isPrivate($property)){
 			return null;
 		}
-
-		if(method_exists($this, static::GET_PREFIX.$property)){
+		// call an existing custom method, skip if the property has a hook
+		if(method_exists($this, static::GET_PREFIX.$property) && !$this->hasGetHook($property)){
 			return $this->{static::GET_PREFIX.$property}();
 		}
-
+		// retrieve the value (triggers an existing property hook)
 		return $this->{$property};
 	}
 
@@ -71,7 +71,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 			return;
 		}
 
-		if(method_exists($this, static::SET_PREFIX.$property)){
+		if(method_exists($this, static::SET_PREFIX.$property) && !$this->hasSetHook($property)){
 			$this->{static::SET_PREFIX.$property}($value);
 
 			return;
@@ -91,6 +91,30 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		return (new ReflectionProperty($this, $property))->isPrivate();
 	}
 
+	/**
+	 * @internal Checks if a property has a "set" hook
+	 */
+	protected function hasSetHook(string $property):bool{
+
+		if(PHP_VERSION_ID < 80400){
+			return false;
+		}
+		/** @phan-suppress-next-line PhanUndeclaredMethod, PhanUndeclaredClassConstant */
+		return (new ReflectionProperty($this, $property))->hasHook(\PropertyHookType::Set);
+	}
+
+	/**
+	 * @internal Checks if a property has a "get" hook
+	 */
+	protected function hasGetHook(string $property):bool{
+
+		if(PHP_VERSION_ID < 80400){
+			return false;
+		}
+		/** @phan-suppress-next-line PhanUndeclaredMethod, PhanUndeclaredClassConstant */
+		return (new ReflectionProperty($this, $property))->hasHook(\PropertyHookType::Get);
+	}
+
 	public function __unset(string $property):void{
 
 		if($this->__isset($property)){
@@ -104,13 +128,19 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	}
 
 	public function toArray():array{
-		$properties = [];
 
-		foreach(array_keys(get_object_vars($this)) as $key){
-			$properties[$key] = $this->__get($key);
+		$properties = (new ReflectionObject($this))
+			->getProperties(~(ReflectionProperty::IS_STATIC | ReflectionProperty::IS_READONLY | ReflectionProperty::IS_PRIVATE))
+		;
+
+		$data = [];
+
+		foreach($properties as $reflectionProperty){
+			// the magic getter is called intentionally here, so that any existing hook methods are called on export
+			$data[$reflectionProperty->name] = $this->__get($reflectionProperty->name);
 		}
 
-		return $properties;
+		return $data;
 	}
 
 	/**
@@ -129,7 +159,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		$json = json_encode($this, ($jsonOptions ?? 0));
 
 		if($json === false){
-			throw new JsonException(json_last_error_msg());
+			throw new JsonException(json_last_error_msg()); // @codeCoverageIgnore
 		}
 
 		return $json;
@@ -151,8 +181,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	/**
 	 * Returns a serialized string representation of the object in its current state (except static/readonly properties)
-	 *
-	 * @see \chillerlan\Settings\SettingsContainerInterface::toArray()
 	 */
 	public function serialize():string{
 		return serialize($this);
@@ -161,62 +189,88 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * Restores the data (except static/readonly properties) from the given serialized object to the current instance
 	 *
-	 * @see \chillerlan\Settings\SettingsContainerInterface::fromIterable()
-	 *
 	 * @throws \InvalidArgumentException
 	 */
 	public function unserialize(string $data):void{
 		$obj = unserialize($data);
 
-		if($obj === false || !is_object($obj)){
+		if(!is_object($obj)){
 			throw new InvalidArgumentException('The given serialized string is invalid');
 		}
 
-		$reflection = new ReflectionClass($obj);
+		$reflection = new ReflectionObject($obj);
 
 		if(!$reflection->isInstance($this)){
 			throw new InvalidArgumentException('The unserialized object does not match the class of this container');
 		}
 
 		$properties = $reflection->getProperties(~(ReflectionProperty::IS_STATIC | ReflectionProperty::IS_READONLY));
+		$data       = [];
 
 		foreach($properties as $reflectionProperty){
-			$this->{$reflectionProperty->name} = $reflectionProperty->getValue($obj);
+			$data[$reflectionProperty->name] = (PHP_VERSION_ID < 80400)
+				? $reflectionProperty->getValue($obj)
+				/** @phan-suppress-next-line PhanUndeclaredMethod */
+				: $reflectionProperty->getRawValue($obj);
 		}
 
+		$this->__unserialize($data);
 	}
 
 	/**
-	 * Returns a serialized string representation of the object in its current state (except static/readonly properties)
+	 * Returns a serialized array representation of the object in its current state (except static/readonly properties),
+	 * bypassing custom getters and property hooks
 	 *
-	 * @see \chillerlan\Settings\SettingsContainerInterface::toArray()
+	 * @return array<string, mixed>
 	 */
 	public function __serialize():array{
 
-		$properties = (new ReflectionClass($this))
+		$properties = (new ReflectionObject($this))
 			->getProperties(~(ReflectionProperty::IS_STATIC | ReflectionProperty::IS_READONLY))
 		;
 
 		$data = [];
 
 		foreach($properties as $reflectionProperty){
-			$data[$reflectionProperty->name] = $reflectionProperty->getValue($this);
+			// bypass existing property hooks for PHP >= 8.4
+			$data[$reflectionProperty->name] = (PHP_VERSION_ID < 80400)
+				? $reflectionProperty->getValue($this)
+				/** @phan-suppress-next-line PhanUndeclaredMethod */
+				: $reflectionProperty->getRawValue($this);
 		}
 
 		return $data;
 	}
 
 	/**
-	 * Restores the data from the given array to the current instance
-	 *
-	 * @see \chillerlan\Settings\SettingsContainerInterface::fromIterable()
+	 * Restores the data from the given array to the current instance,
+	 * bypassing custom setters and property hooks
 	 *
 	 * @param array<string, mixed> $data
 	 */
 	public function __unserialize(array $data):void{
+		$reflection = new ReflectionObject($this);
 
 		foreach($data as $key => $value){
-			$this->{$key} = $value;
+			try{
+				$reflectionProperty = $reflection->getProperty($key);
+
+				if($reflectionProperty->isStatic() || $reflectionProperty->isReadOnly()){
+					continue; // @codeCoverageIgnore
+				}
+
+				(PHP_VERSION_ID < 80400)
+					? $reflectionProperty->setValue($this, $value)
+					/** @phan-suppress-next-line PhanUndeclaredMethod */
+					: $reflectionProperty->setRawValue($this, $value);
+
+			}
+			// @codeCoverageIgnoreStart
+			catch(ReflectionException){
+				// attempt to assign a non-existent property, skip
+				continue;
+			}
+			// @codeCoverageIgnoreEnd
 		}
 
 	}

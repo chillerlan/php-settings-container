@@ -139,6 +139,39 @@ $container->what = 'some value';
 var_dump($container->what); // -> hash: 5946210c9e93ae37891dfe96c3e39614 (custom getter added "hash: ")
 ```
 
+#### A note on property hooks (PHP 8.4+)
+
+Property hooks are called whenever a property is accessed (except from within the hook itself of course), which means that the custom get/set methods this library allows would conflict when a custom method is defined for a property that also has a hook defined.
+To prevent double method calls, the internal methods `hasSetHook()` and `hasGetHook()` have been introduced, and are called whenever the magic get/set methods are called: when both, a custom method and a property hook exist, only the property hook will be called.
+<br/>Public properties will never call the magic get/set, however, their hooks *will* be called. (un)serializing a `SettingsContainerInterface` instance will bypass magic get/set and existing property hooks, while JSON de/encode as will call magic get/set or existing hooks explicitly via the `toArray()` and `fromIterable()` methods.
+
+```php
+class PropertyHooksContainer extends SettingsContainerAbstract{
+
+	protected string $someValue{
+		set => doStuff($value);
+	}
+
+	// this method will be ignored in magic calls as a "set" hook on the property exists
+	protected function set_someValue(string $value):void{
+		$this->someValue = doOtherStuff($value);
+	}
+
+	// this custom method will be called as the property has no "get" hook
+	protected function get_someValue():string{
+		return doWhatever($this->someValue);
+	}
+
+	// this property will never trigger the magic get/set and associated methods
+	public string $otherValue{
+		set => doStuff($value);
+		get => $this->otherValue;
+	}
+
+}
+```
+
+
 ### API
 
 #### [`SettingsContainerAbstract`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerAbstract.php)
@@ -146,7 +179,6 @@ var_dump($container->what); // -> hash: 5946210c9e93ae37891dfe96c3e39614 (custom
 | method                                     | return                       | info                                                                                                                |
 |--------------------------------------------|------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | `__construct(iterable $properties = null)` | -                            | calls `construct()` internally after the properties have been set                                                   |
-| (protected) `construct()`                  | void                         | calls a method with trait name as replacement constructor for each used trait                                       |
 | `__get(string $property)`                  | mixed                        | calls `$this->{'get_'.$property}()` if such a method exists                                                         |
 | `__set(string $property, $value)`          | void                         | calls `$this->{'set_'.$property}($value)` if such a method exists                                                   |
 | `__isset(string $property)`                | bool                         |                                                                                                                     |
@@ -161,6 +193,17 @@ var_dump($container->what); // -> hash: 5946210c9e93ae37891dfe96c3e39614 (custom
 | `unserialize(string $data)`                | void                         | implements the [`Serializable`](https://www.php.net/manual/en/serializable.unserialize.php) interface               |
 | `__serialize()`                            | array                        | implements the [`Serializable`](https://www.php.net/manual/en/language.oop5.magic.php#object.serialize) interface   |
 | `__unserialize(array $data)`               | void                         | implements the [`Serializable`](https://www.php.net/manual/en/language.oop5.magic.php#object.unserialize) interface |
+
+
+#### Internal (protected) methods
+
+| method                               | return | info                                                                          |
+|--------------------------------------|--------|-------------------------------------------------------------------------------|
+| `construct()`                        | void   | calls a method with trait name as replacement constructor for each used trait |
+| `isPrivate(string $property)`        | bool   | private properties are excluded from magic calls                              |
+| `hasSetHook(string $property)`       | bool   |                                                                               |
+| `hasGetHook(string $property)`       | bool   |                                                                               |
+
 
 ## Disclaimer
 This might be either an absolutely brilliant or completely stupid idea - you decide. (in hindsight it was a great idea I guess - property hooks made their way into PHP 8.4)

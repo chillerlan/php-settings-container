@@ -130,18 +130,25 @@ class ContainerTest extends TestCase{
 			'testConstruct' => 'success',
 		]);
 
-		/** @var \chillerlan\SettingsTest\TestContainer $container */
-		$container = unserialize(serialize($container)); // object should remain in the same state
-
 		// serialize will return the object in its current state including private properties
 		$expected = 'O:37:"chillerlan\SettingsTest\TestContainer":7:{s:5:"test3";s:4:"what";s:5:"test1";s:2:"no";'.
 		            's:5:"test2";b:1;s:13:"testConstruct";s:7:"success";s:5:"test4";N;s:5:"test5";s:0:"";s:5:"test6";N;}';
 
-		$this::assertSame($expected, $container->serialize());
-		$this::assertSame($expected, serialize($container));
+		$serialized = serialize($container);
 
+		$this::assertSame($expected, $serialized);
+
+		/** @var \chillerlan\SettingsTest\TestContainer $container */
+		$container = unserialize($serialized); // object should remain in the same state
+
+		$this::assertSame($expected, $container->serialize());
+
+		$container = (new TestContainer);
 		$container->unserialize($expected);
 
+		$this::assertSame('no', $container->test1);
+		$this::assertSame(true, $container->test2);
+		$this::assertNull($container->test3);
 		$this::assertSame('', $container->test5);
 	}
 

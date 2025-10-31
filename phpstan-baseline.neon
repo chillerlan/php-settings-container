@@ -1,55 +1,31 @@
 parameters:
 	ignoreErrors:
 		-
-			rawMessage: Access to an undefined property chillerlan\SettingsTest\TestContainer::$foo.
-			identifier: property.notFound
+			rawMessage: Access to constant Get on an unknown class PropertyHookType.
+			identifier: class.notFound
 			count: 1
-			path: tests/ContainerTest.php
+			path: src/SettingsContainerAbstract.php
 
 		-
-			rawMessage: Access to private property chillerlan\SettingsTest\TestContainer::$test3.
-			identifier: property.private
-			count: 5
-			path: tests/ContainerTest.php
-
-		-
-			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertFalse() with true will always evaluate to false.'
-			identifier: staticMethod.impossibleType
+			rawMessage: Access to constant Set on an unknown class PropertyHookType.
+			identifier: class.notFound
 			count: 1
-			path: tests/ContainerTest.php
+			path: src/SettingsContainerAbstract.php
 
 		-
-			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertFalse() with true will always evaluate to true.'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/ContainerTest.php
-
-		-
-			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertNull() with string will always evaluate to false.'
-			identifier: staticMethod.impossibleType
+			rawMessage: 'Call to an undefined method ReflectionProperty::getRawValue().'
+			identifier: method.notFound
 			count: 2
-			path: tests/ContainerTest.php
+			path: src/SettingsContainerAbstract.php
 
 		-
-			rawMessage: 'Call to static method PHPUnit\Framework\Assert::assertTrue() with true will always evaluate to true.'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/ContainerTest.php
-
-		-
-			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test1 (string) in isset() is not nullable.'
-			identifier: isset.property
+			rawMessage: 'Call to an undefined method ReflectionProperty::hasHook().'
+			identifier: method.notFound
 			count: 2
-			path: tests/ContainerTest.php
+			path: src/SettingsContainerAbstract.php
 
 		-
-			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test3 (string) in isset() is not nullable.'
-			identifier: isset.property
+			rawMessage: 'Call to an undefined method ReflectionProperty::setRawValue().'
+			identifier: method.notFound
 			count: 1
-			path: tests/ContainerTest.php
-
-		-
-			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test3 is never read, only written.'
-			identifier: property.onlyWritten
-			count: 1
-			path: tests/TestContainer.php
+			path: src/SettingsContainerAbstract.php
