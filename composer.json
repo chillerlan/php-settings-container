@@ -6,7 +6,7 @@
 	"type": "library",
 	"minimum-stability": "stable",
 	"keywords": [
-		"helper", "container", "settings", "configuration"
+		"helper", "container", "settings", "configuration", "property hook"
 	],
 	"authors": [
 		{
