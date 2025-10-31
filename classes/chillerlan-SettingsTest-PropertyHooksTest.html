@@ -65,7 +65,7 @@
                 
             </li>
                     <li>
-                <a href="namespaces/chillerlan-settingstest.html" class="-active">SettingsTest</a>
+                <a href="namespaces/chillerlan-settingstest.html" class="">SettingsTest</a>
                 
             </li>
             </ul>
@@ -96,51 +96,251 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan.html">chillerlan</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-settingstest.html">SettingsTest</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -namespace">
-        <h2 class="phpdocumentor-content__title">SettingsTest</h2>
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    PropertyHooksTest
 
-        
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\PHPUnit\Framework\TestCase">TestCase</abbr>
+    </span>
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a></li>
+                            </ul>
+        </div>
+    
+    
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/PropertyHooksTest.php"><a href="files/tests-propertyhookstest.html"><abbr title="tests/PropertyHooksTest.php">PropertyHooksTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">Tests to ensure that properties with hooks (PHP 8.4+) produce the same results as the custom get/set methods</p>
+
+
+
+
+
+
+
+
+
 <h3 id="toc">
     Table of Contents
-    <a href="namespaces/chillerlan-settingstest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
 
 
-    <h4 id="toc-classes">
-        Classes
-        <a href="namespaces/chillerlan-settingstest.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/chillerlan-SettingsTest-ContainerTest.html"><abbr title="\chillerlan\SettingsTest\ContainerTest">ContainerTest</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/chillerlan-SettingsTest-PropertyHooksContainer.html"><abbr title="\chillerlan\SettingsTest\PropertyHooksContainer">PropertyHooksContainer</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html"><abbr title="\chillerlan\SettingsTest\PropertyHooksTest">PropertyHooksTest</abbr></a></dt><dd>Tests to ensure that properties with hooks (PHP 8.4+) produce the same results as the custom get/set methods</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/chillerlan-SettingsTest-TestContainer.html"><abbr title="\chillerlan\SettingsTest\TestContainer">TestContainer</abbr></a></dt>    </dl>
-
-    <h4 id="toc-traits">
-        Traits
-        <a href="namespaces/chillerlan-settingstest.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/chillerlan-SettingsTest-TestOptionsTrait.html"><abbr title="\chillerlan\SettingsTest\TestOptionsTrait">TestOptionsTrait</abbr></a></dt>    </dl>
 
 
 
 
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testPropertyHooks">testPropertyHooks()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testSerializable">testSerializable()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testToJSON">testToJSON()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_setUp">setUp()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+    </dl>
 
 
 
         
 
         
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testPropertyHooks">
+        testPropertyHooks()
+        <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testPropertyHooks" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/PropertyHooksTest.php"><a href="files/tests-propertyhookstest.html"><abbr title="tests/PropertyHooksTest.php">PropertyHooksTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testPropertyHooks</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testSerializable">
+        testSerializable()
+        <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testSerializable" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/PropertyHooksTest.php"><a href="files/tests-propertyhookstest.html"><abbr title="tests/PropertyHooksTest.php">PropertyHooksTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testSerializable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testToJSON">
+        testToJSON()
+        <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testToJSON" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/PropertyHooksTest.php"><a href="files/tests-propertyhookstest.html"><abbr title="tests/PropertyHooksTest.php">PropertyHooksTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">77</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testToJSON</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setUp">
+        setUp()
+        <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/PropertyHooksTest.php"><a href="files/tests-propertyhookstest.html"><abbr title="tests/PropertyHooksTest.php">PropertyHooksTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">26</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">setUp</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/PropertyHooksTest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -233,7 +433,7 @@
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                            
+                                
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -241,12 +441,20 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                    <li><a href="namespaces/chillerlan-settingstest.html#toc-classes">Classes</a></li>
-                                                            <li><a href="namespaces/chillerlan-settingstest.html#toc-traits">Traits</a></li>
-                                                                                                </ul>
+                                                                                <li><a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
-
             
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testPropertyHooks">testPropertyHooks()</a></li>
+                                            <li class=""><a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testSerializable">testSerializable()</a></li>
+                                            <li class=""><a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testToJSON">testToJSON()</a></li>
+                                            <li class=""><a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_setUp">setUp()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 
@@ -264,7 +472,7 @@
     </section>
 </section>
         </div>
-        <a href="namespaces/chillerlan-settingstest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-SettingsTest-PropertyHooksTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

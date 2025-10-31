@@ -78,12 +78,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003A__serialize\u0028\u0029",
             "name": "__serialize",
-            "summary": "Returns\u0020a\u0020serialized\u0020string\u0020representation\u0020of\u0020the\u0020object\u0020in\u0020its\u0020current\u0020state\u0020\u0028except\u0020static\/readonly\u0020properties\u0029",
+            "summary": "Returns\u0020a\u0020serialized\u0020array\u0020representation\u0020of\u0020the\u0020object\u0020in\u0020its\u0020current\u0020state\u0020\u0028except\u0020static\/readonly\u0020properties\u0029,\nbypassing\u0020custom\u0020getters\u0020and\u0020property\u0020hooks",
             "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method___serialize"
         },                {
             "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003A__unserialize\u0028\u0029",
             "name": "__unserialize",
-            "summary": "Restores\u0020the\u0020data\u0020from\u0020the\u0020given\u0020array\u0020to\u0020the\u0020current\u0020instance",
+            "summary": "Restores\u0020the\u0020data\u0020from\u0020the\u0020given\u0020array\u0020to\u0020the\u0020current\u0020instance,\nbypassing\u0020custom\u0020setters\u0020and\u0020property\u0020hooks",
             "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method___unserialize"
         },                {
             "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003ASET_PREFIX",
@@ -200,6 +200,71 @@ Search.appendIndex(
             "name": "testUnserializeInvalidObjectException",
             "summary": "",
             "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testUnserializeInvalidObjectException"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer",
+            "name": "PropertyHooksContainer",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003Aset_test1\u0028\u0029",
+            "name": "set_test1",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#method_set_test1"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003Aset_test4\u0028\u0029",
+            "name": "set_test4",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#method_set_test4"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003Aget_test4\u0028\u0029",
+            "name": "get_test4",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#method_get_test4"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test1",
+            "name": "test1",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test1"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test2",
+            "name": "test2",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test2"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test3",
+            "name": "test3",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test3"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test4",
+            "name": "test4",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test4"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksTest",
+            "name": "PropertyHooksTest",
+            "summary": "Tests\u0020to\u0020ensure\u0020that\u0020properties\u0020with\u0020hooks\u0020\u0028PHP\u00208.4\u002B\u0029\u0020produce\u0020the\u0020same\u0020results\u0020as\u0020the\u0020custom\u0020get\/set\u0020methods",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksTest\u003A\u003AsetUp\u0028\u0029",
+            "name": "setUp",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_setUp"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksTest\u003A\u003AtestPropertyHooks\u0028\u0029",
+            "name": "testPropertyHooks",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testPropertyHooks"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksTest\u003A\u003AtestSerializable\u0028\u0029",
+            "name": "testSerializable",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testSerializable"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksTest\u003A\u003AtestToJSON\u0028\u0029",
+            "name": "testToJSON",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_testToJSON"
         },                {
             "fqsen": "\\chillerlan\\SettingsTest\\TestContainer",
             "name": "TestContainer",
