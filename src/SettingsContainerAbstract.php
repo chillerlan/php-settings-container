@@ -153,8 +153,10 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		if($attributes === []){
 			return false;
 		}
+		/** @var \chillerlan\Settings\Attributes\ThrowOnInvalidProperty $attr */
+		$attr = $attributes[0]->newInstance();
 
-		return $attributes[0]->newInstance()->throwOnInvalid();
+		return $attr->throwOnInvalid;
 	}
 
 	public function toArray():array{
