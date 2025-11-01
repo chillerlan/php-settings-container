@@ -21,9 +21,11 @@ use Attribute;
 #[Attribute(Attribute::TARGET_CLASS)]
 final class ThrowOnInvalidProperty{
 
-	public function __construct(
-		private readonly bool $throwOnInvalid,
-	){}
+	private readonly bool $throwOnInvalid;
+
+	public function __construct(bool $throwOnInvalid){
+		$this->throwOnInvalid = $throwOnInvalid;
+	}
 
 	public function throwOnInvalid():bool{
 		return $this->throwOnInvalid;
