@@ -11,27 +11,18 @@ declare(strict_types=1);
 
 namespace chillerlan\SettingsTest;
 
+use PHPUnit\Framework\Attributes\{RequiresPhp, Test};
 use PHPUnit\Framework\TestCase;
-use function serialize;
-use function sprintf;
-use function unserialize;
-use const PHP_VERSION;
-use const PHP_VERSION_ID;
+use function serialize, unserialize;
 
 /**
  * Tests to ensure that properties with hooks (PHP 8.4+) produce the same results as the custom get/set methods
  */
-class PropertyHooksTest extends TestCase{
+#[RequiresPhp('>= 8.4')]
+final class PropertyHooksTest extends TestCase{
 
-	protected function setUp():void{
-
-		if(PHP_VERSION_ID < 80400){
-			$this::markTestSkipped(sprintf('Property hooks are not supported (current PHP: %s)', PHP_VERSION));
-		}
-
-	}
-
-	public function testPropertyHooks():void{
+	#[Test]
+	public function propertyHooks():void{
 		$container = new PropertyHooksContainer;
 		$container->test1 = 'FOO';
 		$container->test2 = 'bar';
@@ -44,7 +35,8 @@ class PropertyHooksTest extends TestCase{
 		$this->assertSame('3858F62230AC3C915F300C664312C63F', $container->test4);
 	}
 
-	public function testSerializable():void{
+	#[Test]
+	public function serializable():void{
 		$container = new PropertyHooksContainer([
 			'test1' => 'FOO',
 			'test2' => 'bar',
@@ -74,7 +66,8 @@ class PropertyHooksTest extends TestCase{
 		$this->assertSame('3858F62230AC3C915F300C664312C63F', $container->test4);
 	}
 
-	public function testToJSON():void{
+	#[Test]
+	public function toJSON():void{
 		$json = '{"test1":"FOO","test2":"bar","test3":"foobar","test4":"foobar"}';
 
 		$container = (new PropertyHooksContainer)->fromJSON($json);

@@ -11,13 +11,15 @@ declare(strict_types=1);
 
 namespace chillerlan\SettingsTest;
 
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use InvalidArgumentException, JsonException, RuntimeException, TypeError;
 use function json_encode, serialize, sha1, unserialize;
 
-class ContainerTest extends TestCase{
+final class ContainerTest extends TestCase{
 
-	public function testConstruct():void{
+	#[Test]
+	public function construct():void{
 		$container = new TestContainer([
 			'test1' => 'test1',
 			'test2' => true,
@@ -33,7 +35,8 @@ class ContainerTest extends TestCase{
 		$this::assertSame('success', $container->testConstruct);
 	}
 
-	public function testGet():void{
+	#[Test]
+	public function get():void{
 		$container = new TestContainer;
 
 		$this::assertSame('foo', $container->test1);
@@ -58,7 +61,8 @@ class ContainerTest extends TestCase{
 		$this::assertSame('null', $container->test6);
 	}
 
-	public function testSet():void{
+	#[Test]
+	public function set():void{
 		$container = new TestContainer;
 		$container->test1 = 'bar';
 		$container->test2 = false;
@@ -77,7 +81,8 @@ class ContainerTest extends TestCase{
 		$this::assertSame('bar_test5', $container->test5);
 	}
 
-	public function testToArray():void{
+	#[Test]
+	public function toArray():void{
 		$container = new TestContainer([
 			'test1'         => 'no',
 			'test2'         => true,
@@ -98,7 +103,8 @@ class ContainerTest extends TestCase{
 		$this::assertSame('_test5', $container->test5); // value ran through the setter
 	}
 
-	public function testToJSON():void{
+	#[Test]
+	public function toJSON():void{
 		$container = (new TestContainer)->fromJSON('{"test1":"no","test2":true,"testConstruct":"success"}');
 
 		$expected  = '{"test1":"no","test2":true,"testConstruct":"success","test4":null,"test5":"","test6":"null"}';
@@ -112,18 +118,21 @@ class ContainerTest extends TestCase{
 		$this::assertSame('_test5', $container->test5);
 	}
 
-	public function testFromJsonException():void{
+	#[Test]
+	public function fromJsonException():void{
 		$this->expectException(JsonException::class);
 		(new TestContainer)->fromJSON('-');
 
 	}
 
-	public function testFromJsonTypeError():void{
+	#[Test]
+	public function fromJsonTypeError():void{
 		$this->expectException(TypeError::class);
 		(new TestContainer)->fromJSON('2');
 	}
 
-	public function testSerializable():void{
+	#[Test]
+	public function serializable():void{
 		$container = new TestContainer([
 			'test1'         => 'no',
 			'test2'         => true,
@@ -152,21 +161,24 @@ class ContainerTest extends TestCase{
 		$this::assertSame('', $container->test5);
 	}
 
-	public function testUnserializeInvalidDataException():void{
+	#[Test]
+	public function unserializeInvalidDataException():void{
 		$this->expectException(InvalidArgumentException::class);
 		$this->expectExceptionMessage('The given serialized string is invalid');
 
 		(new TestContainer)->unserialize('foo');
 	}
 
-	public function testUnserializeInvalidObjectException():void{
+	#[Test]
+	public function unserializeInvalidObjectException():void{
 		$this->expectException(InvalidArgumentException::class);
 		$this->expectExceptionMessage('The unserialized object does not match the class of this container');
 
 		(new TestContainer)->unserialize('O:8:"stdClass":0:{}');
 	}
 
-	public function testThrowOnInaccessibleGet():void{
+	#[Test]
+	public function throwOnInaccessibleGet():void{
 		$container = new ExceptionTestContainer;
 
 		$this::assertSame('yay', $container->accessible);
@@ -178,7 +190,8 @@ class ContainerTest extends TestCase{
 		$container->inaccessible;
 	}
 
-	public function testThrowOnInaccessibleSet():void{
+	#[Test]
+	public function throwOnInaccessibleSet():void{
 		$container = new ExceptionTestContainer;
 		$container->accessible = 'wowee';
 
