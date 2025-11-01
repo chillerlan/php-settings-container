@@ -96,6 +96,18 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		return isset($this->{$property}) && !$this->isPrivate($property);
 	}
 
+	public function __unset(string $property):void{
+
+		if($this->__isset($property)){
+			unset($this->{$property});
+		}
+
+	}
+
+	public function __toString():string{
+		return $this->toJSON();
+	}
+
 	/**
 	 * @internal Checks if a property is private
 	 */
@@ -143,18 +155,6 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		}
 
 		return $attributes[0]->newInstance()->throwOnInvalid();
-	}
-
-	public function __unset(string $property):void{
-
-		if($this->__isset($property)){
-			unset($this->{$property});
-		}
-
-	}
-
-	public function __toString():string{
-		return $this->toJSON();
 	}
 
 	public function toArray():array{
