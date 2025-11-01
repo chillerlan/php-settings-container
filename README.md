@@ -77,12 +77,27 @@ $container->toArray(); // -> ['foo' => 'what', 'bar' => 'foo']
 $container->toJSON(); // -> {"foo": "what", "bar": "foo"}
 // JSON via JsonSerializable
 $json = json_encode($container); // -> {"foo": "what", "bar": "foo"}
+```
 
-//non-existing properties will be ignored:
+By default, non-existing properties will be ignored and return `null`:
+
+```php
 $container->nope = 'what';
 
 var_dump($container->nope); // -> null
 ```
+
+You can change this behaviour by adding the attribute `ThrowOnInvalidProperty` to your container class:
+
+```php
+#[ThrowOnInvalidProperty(true)]
+class MyContainer extends SettingsContainerAbstract{
+	// ...
+}
+
+$container->nope = 'what'; // -> throws: attempt to write invalid property: "$nope"
+```
+
 
 ### Advanced usage
 

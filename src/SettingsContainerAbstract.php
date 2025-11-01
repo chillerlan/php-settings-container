@@ -11,10 +11,12 @@ declare(strict_types=1);
 
 namespace chillerlan\Settings;
 
-use InvalidArgumentException, JsonException, ReflectionException, ReflectionObject, ReflectionProperty;
-use function is_object, json_decode, json_encode, json_last_error_msg, method_exists, property_exists, serialize, unserialize;
-use const JSON_THROW_ON_ERROR;
-use const PHP_VERSION_ID;
+use chillerlan\Settings\Attributes\ThrowOnInvalidProperty;
+use InvalidArgumentException, JsonException, ReflectionException, ReflectionObject,
+	ReflectionProperty, ReflectionAttribute, RuntimeException;
+use function is_object, json_decode, json_encode, json_last_error_msg,
+	method_exists, property_exists, serialize, sprintf, unserialize;
+use const JSON_THROW_ON_ERROR, PHP_VERSION_ID;
 
 abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
@@ -55,6 +57,11 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	public function __get(string $property):mixed{
 		// back out if the property is inaccessible
 		if(!property_exists($this, $property) || $this->isPrivate($property)){
+
+			if($this->throwOnInvalidProperty()){
+				throw new RuntimeException(sprintf('attempt to read invalid property: "$%s"', $property));
+			}
+
 			return null;
 		}
 		// call an existing custom method, skip if the property has a hook
@@ -68,6 +75,11 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	public function __set(string $property, mixed $value):void{
 
 		if(!property_exists($this, $property) || $this->isPrivate($property)){
+
+			if($this->throwOnInvalidProperty()){
+				throw new RuntimeException(sprintf('attempt to write invalid property: "$%s"', $property));
+			}
+
 			return;
 		}
 
@@ -113,6 +125,24 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		}
 		/** @phan-suppress-next-line PhanUndeclaredMethod, PhanUndeclaredClassConstant */
 		return (new ReflectionProperty($this, $property))->hasHook(\PropertyHookType::Get);
+	}
+
+	/**
+	 * @internal Checks for the attribute "ThrowOnInvalidProperty", used in the magic get/set
+	 *
+	 * @see \chillerlan\Settings\Attributes\ThrowOnInvalidProperty
+	 */
+	protected function throwOnInvalidProperty():bool{
+
+		$attributes = (new ReflectionObject($this))
+			->getAttributes(ThrowOnInvalidProperty::class, ReflectionAttribute::IS_INSTANCEOF)
+		;
+
+		if($attributes === []){
+			return false;
+		}
+
+		return $attributes[0]->newInstance()->throwOnInvalid();
 	}
 
 	public function __unset(string $property):void{

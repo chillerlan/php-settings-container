@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\SettingsTest;
 
 use PHPUnit\Framework\TestCase;
-use InvalidArgumentException, JsonException, TypeError;
+use InvalidArgumentException, JsonException, RuntimeException, TypeError;
 use function json_encode, serialize, sha1, unserialize;
 
 class ContainerTest extends TestCase{
@@ -165,4 +165,29 @@ class ContainerTest extends TestCase{
 
 		(new TestContainer)->unserialize('O:8:"stdClass":0:{}');
 	}
+
+	public function testThrowOnInaccessibleGet():void{
+		$container = new ExceptionTestContainer;
+
+		$this::assertSame('yay', $container->accessible);
+
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('attempt to read invalid property: "$inaccessible"');
+
+		/** @noinspection PhpExpressionResultUnusedInspection */
+		$container->inaccessible;
+	}
+
+	public function testThrowOnInaccessibleSet():void{
+		$container = new ExceptionTestContainer;
+		$container->accessible = 'wowee';
+
+		$this::assertSame('wowee', $container->accessible);
+
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('attempt to write invalid property: "$inaccessible"');
+
+		$container->inaccessible = 'nope';
+	}
+
 }
