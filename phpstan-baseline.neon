@@ -7,9 +7,21 @@ parameters:
 			path: tests/ContainerTest.php
 
 		-
+			rawMessage: Access to private property chillerlan\SettingsTest\ExceptionTestContainer::$inaccessible.
+			identifier: property.private
+			count: 2
+			path: tests/ContainerTest.php
+
+		-
 			rawMessage: Access to private property chillerlan\SettingsTest\TestContainer::$test3.
 			identifier: property.private
 			count: 6
+			path: tests/ContainerTest.php
+
+		-
+			rawMessage: Access to protected property chillerlan\SettingsTest\ExceptionTestContainer::$accessible.
+			identifier: property.protected
+			count: 3
 			path: tests/ContainerTest.php
 
 		-
@@ -37,6 +49,12 @@ parameters:
 			path: tests/ContainerTest.php
 
 		-
+			rawMessage: Expression "$container->inaccessible" on a separate line does not do anything.
+			identifier: expr.resultUnused
+			count: 1
+			path: tests/ContainerTest.php
+
+		-
 			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test1 (string) in isset() is not nullable.'
 			identifier: isset.property
 			count: 2
@@ -47,6 +65,12 @@ parameters:
 			identifier: isset.property
 			count: 1
 			path: tests/ContainerTest.php
+
+		-
+			rawMessage: 'Property chillerlan\SettingsTest\ExceptionTestContainer::$inaccessible is never read, only written.'
+			identifier: property.onlyWritten
+			count: 1
+			path: tests/ExceptionTestContainer.php
 
 		-
 			rawMessage: Access to protected property chillerlan\SettingsTest\PropertyHooksContainer::$test1.
