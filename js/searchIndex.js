@@ -1,6 +1,21 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\chillerlan\\Settings\\Attributes\\ThrowOnInvalidProperty",
+            "name": "ThrowOnInvalidProperty",
+            "summary": "Tells\u0020the\u0020magic\u0020get\/set\u0020methods\u0020whether\u0020to\u0020throw\u0020when\u0020a\u0020properety\u0020is\u0020inaccessible",
+            "url": "classes/chillerlan-Settings-Attributes-ThrowOnInvalidProperty.html"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\Attributes\\ThrowOnInvalidProperty\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/chillerlan-Settings-Attributes-ThrowOnInvalidProperty.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\Attributes\\ThrowOnInvalidProperty\u003A\u003A\u0024throwOnInvalid",
+            "name": "throwOnInvalid",
+            "summary": "",
+            "url": "classes/chillerlan-Settings-Attributes-ThrowOnInvalidProperty.html#property_throwOnInvalid"
+        },                {
             "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract",
             "name": "SettingsContainerAbstract",
             "summary": "",
@@ -201,6 +216,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testUnserializeInvalidObjectException"
         },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ContainerTest\u003A\u003AtestThrowOnInaccessibleGet\u0028\u0029",
+            "name": "testThrowOnInaccessibleGet",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testThrowOnInaccessibleGet"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ContainerTest\u003A\u003AtestThrowOnInaccessibleSet\u0028\u0029",
+            "name": "testThrowOnInaccessibleSet",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_testThrowOnInaccessibleSet"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ExceptionTestContainer",
+            "name": "ExceptionTestContainer",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ExceptionTestContainer.html"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ExceptionTestContainer\u003A\u003A\u0024accessible",
+            "name": "accessible",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ExceptionTestContainer.html#property_accessible"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\ExceptionTestContainer\u003A\u003A\u0024inaccessible",
+            "name": "inaccessible",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-ExceptionTestContainer.html#property_inaccessible"
+        },                {
             "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer",
             "name": "PropertyHooksContainer",
             "summary": "",
@@ -330,6 +370,11 @@ Search.appendIndex(
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\Attributes",
+            "name": "Attributes",
+            "summary": "",
+            "url": "namespaces/chillerlan-settings-attributes.html"
         },                {
             "fqsen": "\\chillerlan\\Settings",
             "name": "Settings",
