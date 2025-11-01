@@ -99,14 +99,14 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @internal Checks if a property is private
 	 */
-	protected function isPrivate(string $property):bool{
+	final protected function isPrivate(string $property):bool{
 		return (new ReflectionProperty($this, $property))->isPrivate();
 	}
 
 	/**
 	 * @internal Checks if a property has a "set" hook
 	 */
-	protected function hasSetHook(string $property):bool{
+	final protected function hasSetHook(string $property):bool{
 
 		if(PHP_VERSION_ID < 80400){
 			return false;
@@ -118,7 +118,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	/**
 	 * @internal Checks if a property has a "get" hook
 	 */
-	protected function hasGetHook(string $property):bool{
+	final protected function hasGetHook(string $property):bool{
 
 		if(PHP_VERSION_ID < 80400){
 			return false;
@@ -132,7 +132,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	 *
 	 * @see \chillerlan\Settings\Attributes\ThrowOnInvalidProperty
 	 */
-	protected function throwOnInvalidProperty():bool{
+	final protected function throwOnInvalidProperty():bool{
 
 		$attributes = (new ReflectionObject($this))
 			->getAttributes(ThrowOnInvalidProperty::class, ReflectionAttribute::IS_INSTANCEOF)
