@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace chillerlan\SettingsTest;
+namespace chillerlan\SettingsTest\Subjects;
 
 use chillerlan\Settings\Attributes\ThrowOnInvalidProperty;
 use chillerlan\Settings\SettingsContainerAbstract;

@@ -7,11 +7,8 @@
 >
 	<testsuites>
 		<testsuite name="php-settings-container test suite">
-			<directory>./tests/</directory>
-			<exclude>./tests/ExceptionTestContainer.php</exclude>
-			<exclude>./tests/PropertyHooksContainer.php</exclude>
-			<exclude>./tests/TestContainer.php</exclude>
-			<exclude>./tests/TestOptionsTrait.php</exclude>
+			<directory>tests</directory>
+			<exclude>tests/Subjects</exclude>
 		</testsuite>
 	</testsuites>
 	<source>

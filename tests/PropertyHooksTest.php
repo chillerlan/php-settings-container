@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\SettingsTest;
 
+use chillerlan\SettingsTest\Subjects\PropertyHooksContainer;
 use PHPUnit\Framework\Attributes\{RequiresPhp, Test};
 use PHPUnit\Framework\TestCase;
 use function serialize, unserialize;
@@ -45,14 +46,15 @@ final class PropertyHooksTest extends TestCase{
 		]);
 
 		// the object state should be retained, bypassing existing property hooks and magic get/set
-		$expected = 'O:46:"chillerlan\SettingsTest\PropertyHooksContainer":4:{s:5:"test1";s:3:"foo";s:5:"test2";s:3:"bar";'.
-		            's:5:"test3";s:32:"3858f62230ac3c915f300c664312c63f";s:5:"test4";s:32:"3858f62230ac3c915f300c664312c63f";}';
+		$expected = 'O:55:"chillerlan\SettingsTest\Subjects\PropertyHooksContainer":4:{s:5:"test1";'.
+		            's:3:"foo";s:5:"test2";s:3:"bar";s:5:"test3";s:32:"3858f62230ac3c915f300c664312c63f";'.
+		            's:5:"test4";s:32:"3858f62230ac3c915f300c664312c63f";}';
 
 		$serialized = serialize($container);
 
 		$this::assertSame($expected, $serialized);
 
-		/** @var \chillerlan\SettingsTest\PropertyHooksContainer $container */
+		/** @var \chillerlan\SettingsTest\Subjects\PropertyHooksContainer $container */
 		$container = unserialize($serialized); // object should remain in the same state
 
 		$this::assertSame($expected, $container->serialize());

@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace chillerlan\SettingsTest;
+namespace chillerlan\SettingsTest\Subjects;
 
 use chillerlan\Settings\SettingsContainerAbstract;
 use function md5;

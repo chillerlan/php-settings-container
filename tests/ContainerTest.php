@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\SettingsTest;
 
+use chillerlan\SettingsTest\Subjects\{ExceptionTestContainer, TestContainer};
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use InvalidArgumentException, JsonException, RuntimeException, TypeError;
@@ -140,14 +141,14 @@ final class ContainerTest extends TestCase{
 		]);
 
 		// serialize will return the object in its current state including private properties
-		$expected = 'O:37:"chillerlan\SettingsTest\TestContainer":7:{s:5:"test3";s:4:"what";s:5:"test1";s:2:"no";'.
+		$expected = 'O:46:"chillerlan\SettingsTest\Subjects\TestContainer":7:{s:5:"test3";s:4:"what";s:5:"test1";s:2:"no";'.
 		            's:5:"test2";b:1;s:13:"testConstruct";s:7:"success";s:5:"test4";N;s:5:"test5";s:0:"";s:5:"test6";N;}';
 
 		$serialized = serialize($container);
 
 		$this::assertSame($expected, $serialized);
 
-		/** @var \chillerlan\SettingsTest\TestContainer $container */
+		/** @var \chillerlan\SettingsTest\Subjects\TestContainer $container */
 		$container = unserialize($serialized); // object should remain in the same state
 
 		$this::assertSame($expected, $container->serialize());
