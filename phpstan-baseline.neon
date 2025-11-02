@@ -1,25 +1,25 @@
 parameters:
 	ignoreErrors:
 		-
-			rawMessage: Access to an undefined property chillerlan\SettingsTest\TestContainer::$foo.
+			rawMessage: Access to an undefined property chillerlan\SettingsTest\Subjects\TestContainer::$foo.
 			identifier: property.notFound
 			count: 1
 			path: tests/ContainerTest.php
 
 		-
-			rawMessage: Access to private property chillerlan\SettingsTest\ExceptionTestContainer::$inaccessible.
+			rawMessage: Access to private property chillerlan\SettingsTest\Subjects\ExceptionTestContainer::$inaccessible.
 			identifier: property.private
 			count: 2
 			path: tests/ContainerTest.php
 
 		-
-			rawMessage: Access to private property chillerlan\SettingsTest\TestContainer::$test3.
+			rawMessage: Access to private property chillerlan\SettingsTest\Subjects\TestContainer::$test3.
 			identifier: property.private
 			count: 6
 			path: tests/ContainerTest.php
 
 		-
-			rawMessage: Access to protected property chillerlan\SettingsTest\ExceptionTestContainer::$accessible.
+			rawMessage: Access to protected property chillerlan\SettingsTest\Subjects\ExceptionTestContainer::$accessible.
 			identifier: property.protected
 			count: 3
 			path: tests/ContainerTest.php
@@ -55,49 +55,49 @@ parameters:
 			path: tests/ContainerTest.php
 
 		-
-			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test1 (string) in isset() is not nullable.'
+			rawMessage: 'Property chillerlan\SettingsTest\Subjects\TestContainer::$test1 (string) in isset() is not nullable.'
 			identifier: isset.property
 			count: 2
 			path: tests/ContainerTest.php
 
 		-
-			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test3 (string) in isset() is not nullable.'
+			rawMessage: 'Property chillerlan\SettingsTest\Subjects\TestContainer::$test3 (string) in isset() is not nullable.'
 			identifier: isset.property
 			count: 1
 			path: tests/ContainerTest.php
 
 		-
-			rawMessage: 'Property chillerlan\SettingsTest\ExceptionTestContainer::$inaccessible is never read, only written.'
-			identifier: property.onlyWritten
-			count: 1
-			path: tests/ExceptionTestContainer.php
-
-		-
-			rawMessage: Access to protected property chillerlan\SettingsTest\PropertyHooksContainer::$test1.
+			rawMessage: Access to protected property chillerlan\SettingsTest\Subjects\PropertyHooksContainer::$test1.
 			identifier: property.protected
 			count: 4
 			path: tests/PropertyHooksTest.php
 
 		-
-			rawMessage: Access to protected property chillerlan\SettingsTest\PropertyHooksContainer::$test2.
+			rawMessage: Access to protected property chillerlan\SettingsTest\Subjects\PropertyHooksContainer::$test2.
 			identifier: property.protected
 			count: 4
 			path: tests/PropertyHooksTest.php
 
 		-
-			rawMessage: Access to protected property chillerlan\SettingsTest\PropertyHooksContainer::$test3.
+			rawMessage: Access to protected property chillerlan\SettingsTest\Subjects\PropertyHooksContainer::$test3.
 			identifier: property.protected
 			count: 5
 			path: tests/PropertyHooksTest.php
 
 		-
-			rawMessage: Access to protected property chillerlan\SettingsTest\PropertyHooksContainer::$test4.
+			rawMessage: Access to protected property chillerlan\SettingsTest\Subjects\PropertyHooksContainer::$test4.
 			identifier: property.protected
 			count: 5
 			path: tests/PropertyHooksTest.php
 
 		-
-			rawMessage: 'Property chillerlan\SettingsTest\TestContainer::$test3 is never read, only written.'
+			rawMessage: 'Property chillerlan\SettingsTest\Subjects\ExceptionTestContainer::$inaccessible is never read, only written.'
 			identifier: property.onlyWritten
 			count: 1
-			path: tests/TestContainer.php
+			path: tests/Subjects/ExceptionTestContainer.php
+
+		-
+			rawMessage: 'Property chillerlan\SettingsTest\Subjects\TestContainer::$test3 is never read, only written.'
+			identifier: property.onlyWritten
+			count: 1
+			path: tests/Subjects/TestContainer.php

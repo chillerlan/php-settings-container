@@ -1,6 +1,6 @@
 parameters:
 	excludePaths:
-		- ../tests/PropertyHooksContainer.php
+		- ../tests/Subjects/PropertyHooksContainer.php
 
 	ignoreErrors:
 		-
