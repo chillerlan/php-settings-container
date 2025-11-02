@@ -226,61 +226,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-SettingsTest-ContainerTest.html#method_throwOnInaccessibleSet"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\ExceptionTestContainer",
-            "name": "ExceptionTestContainer",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-ExceptionTestContainer.html"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\ExceptionTestContainer\u003A\u003A\u0024accessible",
-            "name": "accessible",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-ExceptionTestContainer.html#property_accessible"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\ExceptionTestContainer\u003A\u003A\u0024inaccessible",
-            "name": "inaccessible",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-ExceptionTestContainer.html#property_inaccessible"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer",
-            "name": "PropertyHooksContainer",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003Aset_test1\u0028\u0029",
-            "name": "set_test1",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#method_set_test1"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003Aset_test4\u0028\u0029",
-            "name": "set_test4",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#method_set_test4"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003Aget_test4\u0028\u0029",
-            "name": "get_test4",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#method_get_test4"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test1",
-            "name": "test1",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test1"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test2",
-            "name": "test2",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test2"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test3",
-            "name": "test3",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test3"
-        },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksContainer\u003A\u003A\u0024test4",
-            "name": "test4",
-            "summary": "",
-            "url": "classes/chillerlan-SettingsTest-PropertyHooksContainer.html#property_test4"
-        },                {
             "fqsen": "\\chillerlan\\SettingsTest\\PropertyHooksTest",
             "name": "PropertyHooksTest",
             "summary": "Tests\u0020to\u0020ensure\u0020that\u0020properties\u0020with\u0020hooks\u0020\u0028PHP\u00208.4\u002B\u0029\u0020produce\u0020the\u0020same\u0020results\u0020as\u0020the\u0020custom\u0020get\/set\u0020methods",
@@ -301,65 +246,120 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-SettingsTest-PropertyHooksTest.html#method_toJSON"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestContainer",
-            "name": "TestContainer",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\ExceptionTestContainer",
+            "name": "ExceptionTestContainer",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestContainer.html"
+            "url": "classes/chillerlan-SettingsTest-Subjects-ExceptionTestContainer.html"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestContainer\u003A\u003A\u0024test3",
-            "name": "test3",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\ExceptionTestContainer\u003A\u003A\u0024accessible",
+            "name": "accessible",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestContainer.html#property_test3"
+            "url": "classes/chillerlan-SettingsTest-Subjects-ExceptionTestContainer.html#property_accessible"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait",
-            "name": "TestOptionsTrait",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\ExceptionTestContainer\u003A\u003A\u0024inaccessible",
+            "name": "inaccessible",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html"
+            "url": "classes/chillerlan-SettingsTest-Subjects-ExceptionTestContainer.html#property_inaccessible"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003ATestOptionsTrait\u0028\u0029",
-            "name": "TestOptionsTrait",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer",
+            "name": "PropertyHooksContainer",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#method_TestOptionsTrait"
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003Aset_test5\u0028\u0029",
-            "name": "set_test5",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer\u003A\u003Aset_test1\u0028\u0029",
+            "name": "set_test1",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#method_set_test5"
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html#method_set_test1"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003Aget_test6\u0028\u0029",
-            "name": "get_test6",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer\u003A\u003Aset_test4\u0028\u0029",
+            "name": "set_test4",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#method_get_test6"
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html#method_set_test4"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003A\u0024test1",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer\u003A\u003Aget_test4\u0028\u0029",
+            "name": "get_test4",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html#method_get_test4"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer\u003A\u003A\u0024test1",
             "name": "test1",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#property_test1"
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html#property_test1"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003A\u0024test2",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer\u003A\u003A\u0024test2",
             "name": "test2",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#property_test2"
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html#property_test2"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003A\u0024testConstruct",
-            "name": "testConstruct",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer\u003A\u003A\u0024test3",
+            "name": "test3",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#property_testConstruct"
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html#property_test3"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003A\u0024test4",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\PropertyHooksContainer\u003A\u003A\u0024test4",
             "name": "test4",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#property_test4"
+            "url": "classes/chillerlan-SettingsTest-Subjects-PropertyHooksContainer.html#property_test4"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003A\u0024test5",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestContainer",
+            "name": "TestContainer",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestContainer.html"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestContainer\u003A\u003A\u0024test3",
+            "name": "test3",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestContainer.html#property_test3"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait",
+            "name": "TestOptionsTrait",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003ATestOptionsTrait\u0028\u0029",
+            "name": "TestOptionsTrait",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#method_TestOptionsTrait"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003Aset_test5\u0028\u0029",
+            "name": "set_test5",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#method_set_test5"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003Aget_test6\u0028\u0029",
+            "name": "get_test6",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#method_get_test6"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003A\u0024test1",
+            "name": "test1",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#property_test1"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003A\u0024test2",
+            "name": "test2",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#property_test2"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003A\u0024testConstruct",
+            "name": "testConstruct",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#property_testConstruct"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003A\u0024test4",
+            "name": "test4",
+            "summary": "",
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#property_test4"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003A\u0024test5",
             "name": "test5",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#property_test5"
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#property_test5"
         },                {
-            "fqsen": "\\chillerlan\\SettingsTest\\TestOptionsTrait\u003A\u003A\u0024test6",
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects\\TestOptionsTrait\u003A\u003A\u0024test6",
             "name": "test6",
             "summary": "",
-            "url": "classes/chillerlan-SettingsTest-TestOptionsTrait.html#property_test6"
+            "url": "classes/chillerlan-SettingsTest-Subjects-TestOptionsTrait.html#property_test6"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -385,5 +385,10 @@ Search.appendIndex(
             "name": "SettingsTest",
             "summary": "",
             "url": "namespaces/chillerlan-settingstest.html"
+        },                {
+            "fqsen": "\\chillerlan\\SettingsTest\\Subjects",
+            "name": "Subjects",
+            "summary": "",
+            "url": "namespaces/chillerlan-settingstest-subjects.html"
         }            ]
 );
