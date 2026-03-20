@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\chillerlan\\Settings\\Attributes\\ThrowOnInvalidProperty",
             "name": "ThrowOnInvalidProperty",
-            "summary": "Tells\u0020the\u0020magic\u0020get\/set\u0020methods\u0020whether\u0020to\u0020throw\u0020when\u0020a\u0020properety\u0020is\u0020inaccessible",
+            "summary": "Tells\u0020the\u0020magic\u0020get\/set\u0020methods\u0020whether\u0020to\u0020throw\u0020when\u0020a\u0020property\u0020is\u0020inaccessible",
             "url": "classes/chillerlan-Settings-Attributes-ThrowOnInvalidProperty.html"
         },                {
             "fqsen": "\\chillerlan\\Settings\\Attributes\\ThrowOnInvalidProperty\u003A\u003A__construct\u0028\u0029",
@@ -55,6 +55,26 @@ Search.appendIndex(
             "name": "__toString",
             "summary": "",
             "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method___toString"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003AisPrivate\u0028\u0029",
+            "name": "isPrivate",
+            "summary": "Checks\u0020if\u0020a\u0020property\u0020is\u0020private",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method_isPrivate"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003AhasSetHook\u0028\u0029",
+            "name": "hasSetHook",
+            "summary": "Checks\u0020if\u0020a\u0020property\u0020has\u0020a\u0020\u0022set\u0022\u0020hook",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method_hasSetHook"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003AhasGetHook\u0028\u0029",
+            "name": "hasGetHook",
+            "summary": "Checks\u0020if\u0020a\u0020property\u0020has\u0020a\u0020\u0022get\u0022\u0020hook",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method_hasGetHook"
+        },                {
+            "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003AthrowOnInvalidProperty\u0028\u0029",
+            "name": "throwOnInvalidProperty",
+            "summary": "Checks\u0020for\u0020the\u0020attribute\u0020\u0022ThrowOnInvalidProperty\u0022,\u0020used\u0020in\u0020the\u0020magic\u0020get\/set",
+            "url": "classes/chillerlan-Settings-SettingsContainerAbstract.html#method_throwOnInvalidProperty"
         },                {
             "fqsen": "\\chillerlan\\Settings\\SettingsContainerAbstract\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
