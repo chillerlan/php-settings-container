@@ -16,27 +16,27 @@ A container class for settings objects - decouple configuration logic from your 
 [packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-settings-container.svg?logo=packagist
 [packagist]: https://packagist.org/packages/chillerlan/php-settings-container
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-settings-container.svg
-[license]: https://github.com/chillerlan/php-settings-container/blob/main/LICENSE
+[license]: https://github.com/chillerlan/php-settings-container/blob/v3.x-php8.1/LICENSE
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-settings-container.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-settings-container
-[codacy-badge]: https://img.shields.io/codacy/grade/bd2467799e2943d2853ce3ebad5af490/main?logo=codacy
-[codacy]: https://app.codacy.com/gh/chillerlan/php-settings-container/dashboard?branch=main
+[codacy-badge]: https://img.shields.io/codacy/grade/bd2467799e2943d2853ce3ebad5af490/v3.x-php8.1?logo=codacy
+[codacy]: https://app.codacy.com/gh/chillerlan/php-settings-container/dashboard?branch=v3.x-php8.1
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-settings-container.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-settings-container/stats
-[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-settings-container/ci.yml?branch=main&logo=github
-[gh-action]: https://github.com/chillerlan/php-settings-container/actions/workflows/ci.yml?query=branch%3Amain
+[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-settings-container/ci.yml?branch=v3.x-php8.1&logo=github
+[gh-action]: https://github.com/chillerlan/php-settings-container/actions/workflows/ci.yml?query=branch%3Av3.x-php8.1
 
 ## Documentation
 
 ### Installation
 **requires [composer](https://getcomposer.org)**
 
-*composer.json* (note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^3.0` - see [releases](https://github.com/chillerlan/php-settings-container/releases) for valid versions)
+*composer.json* (note: replace `dev-v3.x-php8.1` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^3.0` - see [releases](https://github.com/chillerlan/php-settings-container/releases) for valid versions)
 ```json
 {
 	"require": {
 		"php": "^8.1",
-		"chillerlan/php-settings-container": "dev-main"
+		"chillerlan/php-settings-container": "dev-v3.x-php8.1"
 	}
 }
 ```
@@ -195,7 +195,7 @@ class PropertyHooksContainer extends SettingsContainerAbstract{
 
 ### API
 
-#### [`SettingsContainerAbstract`](https://github.com/chillerlan/php-settings-container/blob/main/src/SettingsContainerAbstract.php)
+#### [`SettingsContainerAbstract`](https://github.com/chillerlan/php-settings-container/blob/v3.x-php8.1/src/SettingsContainerAbstract.php)
 
 | method                                     | return                       | info                                                                                                                |
 |--------------------------------------------|------------------------------|---------------------------------------------------------------------------------------------------------------------|
