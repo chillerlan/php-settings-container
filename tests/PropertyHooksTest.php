@@ -19,7 +19,6 @@ use function serialize, unserialize;
 /**
  * Tests to ensure that properties with hooks (PHP 8.4+) produce the same results as the custom get/set methods
  */
-#[RequiresPhp('>= 8.4')]
 final class PropertyHooksTest extends TestCase{
 
 	#[Test]

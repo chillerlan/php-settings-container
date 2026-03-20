@@ -20,16 +20,16 @@
 		"source": "https://github.com/chillerlan/php-settings-container"
 	},
 	"require": {
-		"php": "^8.1",
+		"php": "^8.4",
 		"ext-json": "*"
 	},
 	"require-dev": {
-		"phan/phan": "^5.5.2",
+		"phan/phan": "^6.0.2",
 		"phpmd/phpmd": "^2.15",
-		"phpstan/phpstan": "^2.1.31",
-		"phpstan/phpstan-deprecation-rules": "^2.0.3",
-		"phpunit/phpunit": "^10.5",
-		"slevomat/coding-standard": "^8.22",
+		"phpstan/phpstan": "^2.1.41",
+		"phpstan/phpstan-deprecation-rules": "^2.0.4",
+		"phpunit/phpunit": "^13.0",
+		"slevomat/coding-standard": "^8.28",
 		"squizlabs/php_codesniffer": "^4.0"
 	},
 	"autoload": {

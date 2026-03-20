@@ -35,7 +35,7 @@ A container class for settings objects - decouple configuration logic from your 
 ```json
 {
 	"require": {
-		"php": "^8.1",
+		"php": "^8.4",
 		"chillerlan/php-settings-container": "dev-main"
 	}
 }

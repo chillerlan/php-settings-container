@@ -12,16 +12,16 @@ declare(strict_types=1);
 namespace chillerlan\Settings;
 
 use chillerlan\Settings\Attributes\ThrowOnInvalidProperty;
-use InvalidArgumentException, JsonException, ReflectionException, ReflectionObject,
+use InvalidArgumentException, JsonException, PropertyHookType, ReflectionException, ReflectionObject,
 	ReflectionProperty, ReflectionAttribute, RuntimeException;
 use function is_object, json_decode, json_encode, json_last_error_msg,
 	method_exists, property_exists, serialize, sprintf, unserialize;
-use const JSON_THROW_ON_ERROR, PHP_VERSION_ID;
+use const JSON_THROW_ON_ERROR;
 
 abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
-	protected const SET_PREFIX = 'set_';
-	protected const GET_PREFIX = 'get_';
+	protected const string SET_PREFIX = 'set_';
+	protected const string GET_PREFIX = 'get_';
 
 	/**
 	 * SettingsContainerAbstract constructor.
@@ -42,7 +42,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	 * (remember pre-php5 classname constructors? yeah, basically this.)
 	 */
 	protected function construct():void{
-		$traits = (new ReflectionObject($this))->getTraits();
+		$traits = new ReflectionObject($this)->getTraits();
 
 		foreach($traits as $trait){
 			$method = $trait->getShortName();
@@ -109,44 +109,34 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	}
 
 	/**
-	 * @internal Checks if a property is private
+	 * Checks if a property is private
 	 */
 	final protected function isPrivate(string $property):bool{
-		return (new ReflectionProperty($this, $property))->isPrivate();
+		return new ReflectionProperty($this, $property)->isPrivate();
 	}
 
 	/**
-	 * @internal Checks if a property has a "set" hook
+	 * Checks if a property has a "set" hook
 	 */
 	final protected function hasSetHook(string $property):bool{
-
-		if(PHP_VERSION_ID < 80400){
-			return false;
-		}
-		/** @phan-suppress-next-line PhanUndeclaredMethod, PhanUndeclaredClassConstant */
-		return (new ReflectionProperty($this, $property))->hasHook(\PropertyHookType::Set);
+		return new ReflectionProperty($this, $property)->hasHook(PropertyHookType::Set);
 	}
 
 	/**
-	 * @internal Checks if a property has a "get" hook
+	 * Checks if a property has a "get" hook
 	 */
 	final protected function hasGetHook(string $property):bool{
-
-		if(PHP_VERSION_ID < 80400){
-			return false;
-		}
-		/** @phan-suppress-next-line PhanUndeclaredMethod, PhanUndeclaredClassConstant */
-		return (new ReflectionProperty($this, $property))->hasHook(\PropertyHookType::Get);
+		return new ReflectionProperty($this, $property)->hasHook(PropertyHookType::Get);
 	}
 
 	/**
-	 * @internal Checks for the attribute "ThrowOnInvalidProperty", used in the magic get/set
+	 * Checks for the attribute "ThrowOnInvalidProperty", used in the magic get/set
 	 *
 	 * @see \chillerlan\Settings\Attributes\ThrowOnInvalidProperty
 	 */
 	final protected function throwOnInvalidProperty():bool{
 
-		$attributes = (new ReflectionObject($this))
+		$attributes = new ReflectionObject($this)
 			->getAttributes(ThrowOnInvalidProperty::class, ReflectionAttribute::IS_INSTANCEOF)
 		;
 
@@ -161,7 +151,7 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 
 	public function toArray():array{
 
-		$properties = (new ReflectionObject($this))
+		$properties = new ReflectionObject($this)
 			->getProperties(~(ReflectionProperty::IS_STATIC | ReflectionProperty::IS_READONLY | ReflectionProperty::IS_PRIVATE))
 		;
 
@@ -240,10 +230,8 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 		$data       = [];
 
 		foreach($properties as $reflectionProperty){
-			$data[$reflectionProperty->name] = (PHP_VERSION_ID < 80400)
-				? $reflectionProperty->getValue($obj)
-				/** @phan-suppress-next-line PhanUndeclaredMethod */
-				: $reflectionProperty->getRawValue($obj);
+			// bypass existing property hooks
+			$data[$reflectionProperty->name] = $reflectionProperty->getRawValue($obj);
 		}
 
 		$this->__unserialize($data);
@@ -257,18 +245,15 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 	 */
 	public function __serialize():array{
 
-		$properties = (new ReflectionObject($this))
+		$properties = new ReflectionObject($this)
 			->getProperties(~(ReflectionProperty::IS_STATIC | ReflectionProperty::IS_READONLY))
 		;
 
 		$data = [];
 
 		foreach($properties as $reflectionProperty){
-			// bypass existing property hooks for PHP >= 8.4
-			$data[$reflectionProperty->name] = (PHP_VERSION_ID < 80400)
-				? $reflectionProperty->getValue($this)
-				/** @phan-suppress-next-line PhanUndeclaredMethod */
-				: $reflectionProperty->getRawValue($this);
+			// bypass existing property hooks
+			$data[$reflectionProperty->name] = $reflectionProperty->getRawValue($this);
 		}
 
 		return $data;
@@ -291,11 +276,8 @@ abstract class SettingsContainerAbstract implements SettingsContainerInterface{
 					continue; // @codeCoverageIgnore
 				}
 
-				(PHP_VERSION_ID < 80400)
-					? $reflectionProperty->setValue($this, $value)
-					/** @phan-suppress-next-line PhanUndeclaredMethod */
-					: $reflectionProperty->setRawValue($this, $value);
-
+				// bypass existing property hooks
+				$reflectionProperty->setRawValue($this, $value);
 			}
 			// @codeCoverageIgnoreStart
 			catch(ReflectionException){
